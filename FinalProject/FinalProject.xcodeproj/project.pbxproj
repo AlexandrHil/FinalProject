@@ -103,6 +103,7 @@
 				FA12D2762614E353003CE904 /* Frameworks */,
 				FA12D2772614E353003CE904 /* Resources */,
 				483F28132A2ECBBEC390FDC5 /* [CP] Embed Pods Frameworks */,
+				FACC312A2619D4620019C319 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -197,6 +198,24 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FinalProject/Pods-FinalProject-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		FACC312A2619D4620019C319 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

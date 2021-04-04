@@ -29,7 +29,7 @@ excluded:
   - Shared/Addons
   - .vendor
 line_length:
-  warning: 220
+  warning: 250
   error: 300
   ignores_comments: true
   ignores_function_declarations: true
