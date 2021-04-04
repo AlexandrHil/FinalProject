@@ -13,42 +13,34 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
 
-        window?.rootViewController = UIStoryboard(name: "LaunchScreen", bundle: nil).instantiateInitialViewController()
-        window?.makeKeyAndVisible()
+        guard let scene = scene as? UIWindowScene else { return }
+        let window = UIWindow(frame: scene.coordinateSpace.bounds)
+        window.windowScene = scene
 
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
-            self.window?.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()
-        }
+        // creating a nav bar
 
-        guard let _ = (scene as? UIWindowScene) else { return }
+        window.rootViewController = UINavigationController(rootViewController: FPInitViewController())
+        self.window = window
+
+        self.setUpNavbarAppereance()
+
+        window.makeKeyAndVisible()
     }
 
-    func sceneDidDisconnect(_ scene: UIScene) {
-        // Called as the scene is being released by the system.
-        // This occurs shortly after the scene enters the background, or when its session is discarded.
-        // Release any resources associated with this scene that can be re-created the next time the scene connects.
-        // The scene may re-connect later, as its session was not necessarily discarded (see `application:didDiscardSceneSessions` instead).
-    }
+    // nav bar customizing
 
-    func sceneDidBecomeActive(_ scene: UIScene) {
-        // Called when the scene has moved from an inactive state to an active state.
-        // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
-    }
+    func setUpNavbarAppereance() {
+        let navBarAppereance = UINavigationBarAppearance()
+        navBarAppereance.backgroundColor = UIColor(red: 105/255, green: 155/255, blue: 188/255, alpha: 1)
+        navBarAppereance.titleTextAttributes = [.foregroundColor: UIColor.red]
+        navBarAppereance.titleTextAttributes = [.font: UIFont.systemFont(ofSize: 20)]
 
-    func sceneWillResignActive(_ scene: UIScene) {
-        // Called when the scene will move from an active state to an inactive state.
-        // This may occur due to temporary interruptions (ex. an incoming phone call).
-    }
+        let buttonStyle = UIBarButtonItemAppearance(style: .plain)
+//        buttonStyle.normal.titleTextAttributes = [.foregroundColor: UIColor(red: 0/255, green: 48/255, blue: 73/255, alpha: 1)]
+        navBarAppereance.buttonAppearance = buttonStyle
 
-    func sceneWillEnterForeground(_ scene: UIScene) {
-        // Called as the scene transitions from the background to the foreground.
-        // Use this method to undo the changes made on entering the background.
+        UINavigationBar.appearance().standardAppearance = navBarAppereance
+        UINavigationBar.appearance().tintColor = UIColor(red: 0/255, green: 48/255, blue: 73/255, alpha: 1)
+//        UINavigationBar.appearance().barStyle = .default
     }
-
-    func sceneDidEnterBackground(_ scene: UIScene) {
-        // Called as the scene transitions from the foreground to the background.
-        // Use this method to save data, release shared resources, and store enough scene-specific state information
-        // to restore the scene back to its current state.
-    }
-
 }
