@@ -26,7 +26,7 @@ class FPInitViewController: UIViewController {
         super.viewDidLoad()
 
         self.title = "Dayly event"
-        
+
         let addButton = UIBarButtonItem(systemItem: .add)
         self.navigationItem.setRightBarButton(addButton, animated: false)
         self.navigationItem.rightBarButtonItem?.tintColor = UIColor(red: 0/255, green: 48/255, blue: 73/255, alpha: 1)
@@ -37,7 +37,6 @@ class FPInitViewController: UIViewController {
         self.view.addSubview(dateLabel)
 
         self.updateConstraints()
-
     }
 
     func updateConstraints() {
