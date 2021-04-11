@@ -12,7 +12,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // launch screen delay
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-            Thread.sleep(forTimeInterval: 0.7)
+            Thread.sleep(forTimeInterval: 0.5)
             // Override point for customization after application launch.
             return true
         }

@@ -14,6 +14,7 @@
 		FA12D2842614E353003CE904 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA12D2822614E353003CE904 /* Main.storyboard */; };
 		FA12D2862614E357003CE904 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA12D2852614E357003CE904 /* Assets.xcassets */; };
 		FA12D2892614E357003CE904 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA12D2872614E357003CE904 /* LaunchScreen.storyboard */; };
+		FAA8C05F26235CFE00456B68 /* FPPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA8C05E26235CFE00456B68 /* FPPopUpViewController.swift */; };
 		FACC312F261A13A20019C319 /* Date+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACC312E261A13A20019C319 /* Date+Ex.swift */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +30,7 @@
 		FA12D2852614E357003CE904 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA12D2882614E357003CE904 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA12D28A2614E357003CE904 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FAA8C05E26235CFE00456B68 /* FPPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPPopUpViewController.swift; sourceTree = "<group>"; };
 		FACC312E261A13A20019C319 /* Date+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ex.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -86,6 +88,7 @@
 				FA12D27C2614E353003CE904 /* AppDelegate.swift */,
 				FA12D27E2614E353003CE904 /* SceneDelegate.swift */,
 				FA12D2802614E353003CE904 /* FPInitViewController.swift */,
+				FAA8C05E26235CFE00456B68 /* FPPopUpViewController.swift */,
 				FA12D2822614E353003CE904 /* Main.storyboard */,
 				FA12D2852614E357003CE904 /* Assets.xcassets */,
 				FA12D2872614E357003CE904 /* LaunchScreen.storyboard */,
@@ -239,6 +242,7 @@
 				FA12D27D2614E353003CE904 /* AppDelegate.swift in Sources */,
 				FACC312F261A13A20019C319 /* Date+Ex.swift in Sources */,
 				FA12D27F2614E353003CE904 /* SceneDelegate.swift in Sources */,
+				FAA8C05F26235CFE00456B68 /* FPPopUpViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
