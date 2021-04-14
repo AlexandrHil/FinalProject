@@ -14,10 +14,9 @@ class FPHistoryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.view.backgroundColor = .systemBlue
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.title = "History"
-        navigationController?.navigationBar.backgroundColor = .brown
-    }
+        self.view.backgroundColor = .systemGreen
 
+        configureNavigationBar(largeTitleColor: .systemBlue, backgoundColor: .systemYellow, tintColor: .black, title: "History", preferredLargeTitle: true)
+
+    }
 }

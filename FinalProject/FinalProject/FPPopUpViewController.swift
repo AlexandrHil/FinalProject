@@ -111,19 +111,19 @@ class FPPopUpViewController: UIView {
     override func updateConstraints() {
         self.container.snp.updateConstraints { (make) in
             make.left.right.equalToSuperview().inset(30)
-            make.top.equalToSuperview().offset(250)
+            make.top.equalToSuperview().offset(180)
             make.height.equalTo(200)
         }
 
         self.stack.snp.updateConstraints { (make) in
             make.left.right.equalToSuperview().inset(30)
-            make.top.equalToSuperview().offset(250)
+            make.top.equalToSuperview().offset(180)
             make.height.equalTo(200)
         }
 
         self.titleLabel.snp.updateConstraints { (make) in
             make.left.right.equalToSuperview().inset(30)
-            make.top.equalToSuperview().offset(250)
+            make.top.equalToSuperview().offset(180)
             make.height.equalTo(50)
         }
 

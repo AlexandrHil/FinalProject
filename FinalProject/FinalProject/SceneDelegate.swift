@@ -19,22 +19,25 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window?.rootViewController = scene
         window?.makeKeyAndVisible()
         window?.windowScene = windowScene
+
+        self.setUpNavbarAppereance()
     }
 
     func setUpNavbarAppereance() {
-//        let navBarAppereance = UINavigationBarAppearance()
-//        navBarAppereance.backgroundColor = UIColor(red: 105/255, green: 155/255, blue: 188/255, alpha: 1)
-//        navBarAppereance.titleTextAttributes = [.foregroundColor: UIColor.systemRed]
-//        navBarAppereance.titleTextAttributes = [.font: UIFont.systemFont(ofSize: 20)]
-//        navBarAppereance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(red: 0/255, green: 48/255, blue: 73/255, alpha: 1)]
+        let navBarAppereance = UINavigationBarAppearance()
+        navBarAppereance.backgroundColor = UIColor(red: 105/255, green: 155/255, blue: 188/255, alpha: 1)
+        navBarAppereance.titleTextAttributes = [.foregroundColor: UIColor.systemRed]
+        navBarAppereance.titleTextAttributes = [.font: UIFont.systemFont(ofSize: 20)]
+        navBarAppereance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(red: 0/255, green: 48/255, blue: 73/255, alpha: 1)]
 
-//        let buttonStyle = UIBarButtonItemAppearance(style: .plain)
-//        buttonStyle.normal.titleTextAttributes = [.foregroundColor: UIColor(red: 0/255, green: 48/255, blue: 73/255, alpha: 1)]
-//        navBarAppereance.buttonAppearance = buttonStyle
-//
+        let buttonStyle = UIBarButtonItemAppearance(style: .plain)
+        buttonStyle.normal.titleTextAttributes = [.foregroundColor: UIColor(red: 0/255, green: 48/255, blue: 73/255, alpha: 1)]
+        navBarAppereance.buttonAppearance = buttonStyle
+
 //        UINavigationBar.appearance().standardAppearance = navBarAppereance
 //        UINavigationBar.appearance().barStyle = .default
-//        UINavigationBar.appearance().prefersLargeTitles = true
+        UINavigationBar.appearance().prefersLargeTitles = true
+        UINavigationBar.appearance().backgroundColor = .cyan
     }
 
     func changeRootViewController(_ vc: UIViewController, animated: Bool = true) {

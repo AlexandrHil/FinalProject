@@ -36,7 +36,7 @@ class FPTabBarViewController: UITabBarController {
         let attributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 12)]
         appearance.setTitleTextAttributes(attributes as [NSAttributedString.Key: Any], for: .normal)
 
-        self.tabBar.barTintColor = .purple
+        self.tabBar.barTintColor = .white
         self.tabBar.tintColor = .red
         self.tabBar.unselectedItemTintColor = .systemGray
 

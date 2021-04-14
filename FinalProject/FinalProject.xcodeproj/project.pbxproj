@@ -17,6 +17,7 @@
 		FA2BB97E2627192500246242 /* FPSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2BB97D2627192500246242 /* FPSettingsViewController.swift */; };
 		FA2BB9812627195400246242 /* FPHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2BB9802627195400246242 /* FPHistoryViewController.swift */; };
 		FA2BB99226275C7600246242 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA2BB99126275C7600246242 /* Main.storyboard */; };
+		FA96AEAB26278D740046C859 /* Ex+NavBarAppereance.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA96AEAA26278D740046C859 /* Ex+NavBarAppereance.swift */; };
 		FAA8C05F26235CFE00456B68 /* FPPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA8C05E26235CFE00456B68 /* FPPopUpViewController.swift */; };
 		FACC312F261A13A20019C319 /* Date+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACC312E261A13A20019C319 /* Date+Ex.swift */; };
 /* End PBXBuildFile section */
@@ -36,6 +37,7 @@
 		FA2BB97D2627192500246242 /* FPSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPSettingsViewController.swift; sourceTree = "<group>"; };
 		FA2BB9802627195400246242 /* FPHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPHistoryViewController.swift; sourceTree = "<group>"; };
 		FA2BB99126275C7600246242 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		FA96AEAA26278D740046C859 /* Ex+NavBarAppereance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ex+NavBarAppereance.swift"; sourceTree = "<group>"; };
 		FAA8C05E26235CFE00456B68 /* FPPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPPopUpViewController.swift; sourceTree = "<group>"; };
 		FACC312E261A13A20019C319 /* Date+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ex.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -166,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				FACC312E261A13A20019C319 /* Date+Ex.swift */,
+				FA96AEAA26278D740046C859 /* Ex+NavBarAppereance.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -303,6 +306,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA96AEAB26278D740046C859 /* Ex+NavBarAppereance.swift in Sources */,
 				FA12D2812614E353003CE904 /* FPTasksViewController.swift in Sources */,
 				FA12D27D2614E353003CE904 /* AppDelegate.swift in Sources */,
 				FACC312F261A13A20019C319 /* Date+Ex.swift in Sources */,
