@@ -13,15 +13,16 @@ class FPTabBarViewController: UITabBarController {
         super.viewDidLoad()
 
         let settingsController = FPSettingsViewController()
-        settingsController.tabBarItem = UITabBarItem(
-            tabBarSystemItem: .more,
-            tag: 0)
+//        settingsController.tabBarItem = UITabBarItem(
+//            tabBarSystemItem: .more,
+//            tag: 0)
 
+        settingsController.tabBarItem = UITabBarItem(title: "UUUU", image: UIImage(named: "settings"), selectedImage: UIImage())
         let historyController = FPHistoryViewController()
         historyController.tabBarItem = UITabBarItem(
-            tabBarSystemItem: .contacts,
+            tabBarSystemItem: .history,
             tag: 1)
-        
+
         self.setViewControllers([
                                     UINavigationController(rootViewController: settingsController),
                                     UINavigationController(rootViewController: historyController)],

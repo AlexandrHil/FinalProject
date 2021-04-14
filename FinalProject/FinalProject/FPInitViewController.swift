@@ -25,7 +25,7 @@ class FPInitViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        self.setTabBar()
+        self.setTabBar()
 
         self.title = "Dayly task"
 
