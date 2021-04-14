@@ -42,6 +42,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         UINavigationBar.appearance().standardAppearance = navBarAppereance
         UINavigationBar.appearance().barStyle = .default
+    }
 
+    func changeRootViewController(_ vc: UIViewController, animated: Bool = true) {
+        guard let window = self.window else { return }
+
+        window.rootViewController = vc
+
+        if animated {
+            UIView.transition(with: window,
+                              duration: 0.5,
+                              options: .transitionFlipFromLeft,
+                              animations: nil)
+        }
     }
 }

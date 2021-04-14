@@ -25,6 +25,8 @@ class FPInitViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.setTabBar()
+
         self.title = "Dayly task"
 
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
@@ -50,6 +52,13 @@ class FPInitViewController: UIViewController {
             make.left.right.equalToSuperview()
             make.top.equalToSuperview().offset(88)
             make.height.equalTo(88)
+        }
+    }
+
+    func setTabBar() {
+
+        if let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate {
+            sceneDelegate.changeRootViewController(FPTabBarViewController())
         }
     }
 
