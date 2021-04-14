@@ -15,7 +15,6 @@ class FPSettingsViewController: UIViewController {
         super.viewDidLoad()
 
         self.view.backgroundColor = .cyan
-
     }
 
 }
