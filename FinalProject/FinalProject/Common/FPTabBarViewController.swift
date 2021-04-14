@@ -13,10 +13,10 @@ class FPTabBarViewController: UITabBarController {
         super.viewDidLoad()
 
         let tasksController = FPTasksViewController()
-        tasksController.tabBarItem = UITabBarItem(title: "Events", image: UIImage(systemName: "rectangle.stack.fill.badge.plus"), tag: 0)
+        tasksController.tabBarItem = UITabBarItem(title: "Tasks", image: UIImage(systemName: "text.badge.plus"), tag: 0)
 
         let historyController = FPHistoryViewController()
-        historyController.tabBarItem = UITabBarItem(title: "History", image: UIImage(systemName: "calendar.badge.clock"), tag: 1)
+        historyController.tabBarItem = UITabBarItem(title: "History", image: UIImage(systemName: "calendar"), tag: 1)
 
         let settingsController = FPSettingsViewController()
         settingsController.tabBarItem = UITabBarItem(title: "Settings", image: UIImage(systemName: "gearshape.fill"), tag: 2)
@@ -33,7 +33,7 @@ class FPTabBarViewController: UITabBarController {
     func setTabBarAppereance() {
 
         let appearance = UITabBarItem.appearance()
-        let attributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 12)]
+        let attributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14)]
         appearance.setTitleTextAttributes(attributes as [NSAttributedString.Key: Any], for: .normal)
 
         self.tabBar.barTintColor = .white
