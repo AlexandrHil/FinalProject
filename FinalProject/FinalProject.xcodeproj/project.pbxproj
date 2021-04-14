@@ -10,10 +10,13 @@
 		E7FBA6FAE1B045592591295B /* Pods_FinalProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71A3DAC647BF8B97B6722210 /* Pods_FinalProject.framework */; };
 		FA12D27D2614E353003CE904 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA12D27C2614E353003CE904 /* AppDelegate.swift */; };
 		FA12D27F2614E353003CE904 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA12D27E2614E353003CE904 /* SceneDelegate.swift */; };
-		FA12D2812614E353003CE904 /* FPInitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA12D2802614E353003CE904 /* FPInitViewController.swift */; };
-		FA12D2842614E353003CE904 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA12D2822614E353003CE904 /* Main.storyboard */; };
+		FA12D2812614E353003CE904 /* FPTasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA12D2802614E353003CE904 /* FPTasksViewController.swift */; };
 		FA12D2862614E357003CE904 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA12D2852614E357003CE904 /* Assets.xcassets */; };
 		FA12D2892614E357003CE904 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA12D2872614E357003CE904 /* LaunchScreen.storyboard */; };
+		FA2BB97B262718F500246242 /* FPTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2BB97A262718F500246242 /* FPTabBarViewController.swift */; };
+		FA2BB97E2627192500246242 /* FPSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2BB97D2627192500246242 /* FPSettingsViewController.swift */; };
+		FA2BB9812627195400246242 /* FPHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2BB9802627195400246242 /* FPHistoryViewController.swift */; };
+		FA2BB99226275C7600246242 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA2BB99126275C7600246242 /* Main.storyboard */; };
 		FAA8C05F26235CFE00456B68 /* FPPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA8C05E26235CFE00456B68 /* FPPopUpViewController.swift */; };
 		FACC312F261A13A20019C319 /* Date+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACC312E261A13A20019C319 /* Date+Ex.swift */; };
 /* End PBXBuildFile section */
@@ -25,11 +28,14 @@
 		FA12D2792614E353003CE904 /* FinalProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinalProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA12D27C2614E353003CE904 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA12D27E2614E353003CE904 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FA12D2802614E353003CE904 /* FPInitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPInitViewController.swift; sourceTree = "<group>"; };
-		FA12D2832614E353003CE904 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FA12D2802614E353003CE904 /* FPTasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPTasksViewController.swift; sourceTree = "<group>"; };
 		FA12D2852614E357003CE904 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA12D2882614E357003CE904 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA12D28A2614E357003CE904 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA2BB97A262718F500246242 /* FPTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPTabBarViewController.swift; sourceTree = "<group>"; };
+		FA2BB97D2627192500246242 /* FPSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPSettingsViewController.swift; sourceTree = "<group>"; };
+		FA2BB9802627195400246242 /* FPHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPHistoryViewController.swift; sourceTree = "<group>"; };
+		FA2BB99126275C7600246242 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		FAA8C05E26235CFE00456B68 /* FPPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPPopUpViewController.swift; sourceTree = "<group>"; };
 		FACC312E261A13A20019C319 /* Date+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ex.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -84,17 +90,76 @@
 		FA12D27B2614E353003CE904 /* FinalProject */ = {
 			isa = PBXGroup;
 			children = (
-				FACC312D261A13760019C319 /* Extensions */,
 				FA12D27C2614E353003CE904 /* AppDelegate.swift */,
 				FA12D27E2614E353003CE904 /* SceneDelegate.swift */,
-				FA12D2802614E353003CE904 /* FPInitViewController.swift */,
 				FAA8C05E26235CFE00456B68 /* FPPopUpViewController.swift */,
-				FA12D2822614E353003CE904 /* Main.storyboard */,
-				FA12D2852614E357003CE904 /* Assets.xcassets */,
-				FA12D2872614E357003CE904 /* LaunchScreen.storyboard */,
+				FA2BB9892627585E00246242 /* Features */,
+				FA2BB9872627582700246242 /* Common */,
+				FACC312D261A13760019C319 /* Extensions */,
+				FA2BB99526275D0400246242 /* Resourses */,
 				FA12D28A2614E357003CE904 /* Info.plist */,
 			);
 			path = FinalProject;
+			sourceTree = "<group>";
+		};
+		FA2BB9872627582700246242 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				FA2BB97A262718F500246242 /* FPTabBarViewController.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		FA2BB9892627585E00246242 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				FA2BB98A2627589700246242 /* Initialization */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		FA2BB98A2627589700246242 /* Initialization */ = {
+			isa = PBXGroup;
+			children = (
+				FA2BB98F2627595000246242 /* History */,
+				FA2BB98D2627593600246242 /* Settings */,
+				FA2BB98B262758B600246242 /* Tasks */,
+			);
+			path = Initialization;
+			sourceTree = "<group>";
+		};
+		FA2BB98B262758B600246242 /* Tasks */ = {
+			isa = PBXGroup;
+			children = (
+				FA12D2802614E353003CE904 /* FPTasksViewController.swift */,
+			);
+			path = Tasks;
+			sourceTree = "<group>";
+		};
+		FA2BB98D2627593600246242 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				FA2BB97D2627192500246242 /* FPSettingsViewController.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		FA2BB98F2627595000246242 /* History */ = {
+			isa = PBXGroup;
+			children = (
+				FA2BB9802627195400246242 /* FPHistoryViewController.swift */,
+			);
+			path = History;
+			sourceTree = "<group>";
+		};
+		FA2BB99526275D0400246242 /* Resourses */ = {
+			isa = PBXGroup;
+			children = (
+				FA12D2852614E357003CE904 /* Assets.xcassets */,
+				FA12D2872614E357003CE904 /* LaunchScreen.storyboard */,
+				FA2BB99126275C7600246242 /* Main.storyboard */,
+			);
+			path = Resourses;
 			sourceTree = "<group>";
 		};
 		FACC312D261A13760019C319 /* Extensions */ = {
@@ -165,9 +230,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA2BB99226275C7600246242 /* Main.storyboard in Resources */,
 				FA12D2892614E357003CE904 /* LaunchScreen.storyboard in Resources */,
 				FA12D2862614E357003CE904 /* Assets.xcassets in Resources */,
-				FA12D2842614E353003CE904 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,25 +303,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA12D2812614E353003CE904 /* FPInitViewController.swift in Sources */,
+				FA12D2812614E353003CE904 /* FPTasksViewController.swift in Sources */,
 				FA12D27D2614E353003CE904 /* AppDelegate.swift in Sources */,
 				FACC312F261A13A20019C319 /* Date+Ex.swift in Sources */,
 				FA12D27F2614E353003CE904 /* SceneDelegate.swift in Sources */,
+				FA2BB97E2627192500246242 /* FPSettingsViewController.swift in Sources */,
+				FA2BB97B262718F500246242 /* FPTabBarViewController.swift in Sources */,
 				FAA8C05F26235CFE00456B68 /* FPPopUpViewController.swift in Sources */,
+				FA2BB9812627195400246242 /* FPHistoryViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		FA12D2822614E353003CE904 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FA12D2832614E353003CE904 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		FA12D2872614E357003CE904 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

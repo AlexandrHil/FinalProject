@@ -1,5 +1,5 @@
 //
-//  FPInitViewController.swift
+//  FPTasksViewController.swift
 //  FinalProject
 //
 //  Created by Alex on 31.03.21.
@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class FPInitViewController: UIViewController {
+class FPTasksViewController: UIViewController {
 
     private lazy var dateLabel: UILabel = {
         let label = UILabel()
@@ -24,8 +24,6 @@ class FPInitViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.title = "Dayly task"
 
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
 
@@ -54,13 +52,6 @@ class FPInitViewController: UIViewController {
     }
 
     @objc func addButtonTapped() {
-
-// blur - эффект?
-        let blurredView = UIVisualEffectView(effect: UIBlurEffect(style: .regular))
-        blurredView.frame = self.view.bounds
-        blurredView.alpha = 0.8
-        self.view.addSubview(blurredView)
-
         let popUp = FPPopUpViewController()
         self.view.addSubview(popUp)
     }
