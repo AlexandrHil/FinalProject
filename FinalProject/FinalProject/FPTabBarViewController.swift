@@ -13,15 +13,10 @@ class FPTabBarViewController: UITabBarController {
         super.viewDidLoad()
 
         let settingsController = FPSettingsViewController()
-//        settingsController.tabBarItem = UITabBarItem(
-//            tabBarSystemItem: .more,
-//            tag: 0)
+        settingsController.tabBarItem = UITabBarItem(title: "Settings", image: UIImage(systemName: "gearshape.fill"), tag: 0)
 
-        settingsController.tabBarItem = UITabBarItem(title: "UUUU", image: UIImage(named: "settings"), selectedImage: UIImage())
         let historyController = FPHistoryViewController()
-        historyController.tabBarItem = UITabBarItem(
-            tabBarSystemItem: .history,
-            tag: 1)
+        historyController.tabBarItem = UITabBarItem(title: "History", image: UIImage(systemName: "calendar.badge.clock"), tag: 1)
 
         self.setViewControllers([
                                     UINavigationController(rootViewController: settingsController),
@@ -33,6 +28,10 @@ class FPTabBarViewController: UITabBarController {
 
     func setTabBarAppereance() {
 
+        let appearance = UITabBarItem.appearance()
+        let attributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 12)]
+        appearance.setTitleTextAttributes(attributes as [NSAttributedString.Key: Any], for: .normal)
+
         self.tabBar.barTintColor = .white
         self.tabBar.tintColor = .red
         self.tabBar.unselectedItemTintColor = .systemGray
@@ -42,5 +41,4 @@ class FPTabBarViewController: UITabBarController {
         self.tabBar.layer.shadowOpacity = 0.5
         self.tabBar.layer.shadowColor = UIColor.black.cgColor
     }
-
 }
