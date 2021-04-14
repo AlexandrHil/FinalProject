@@ -54,7 +54,13 @@ class FPInitViewController: UIViewController {
     }
 
     @objc func addButtonTapped() {
-        print("---CLICK---")
+
+// blur - эффект?
+        let blurredView = UIVisualEffectView(effect: UIBlurEffect(style: .regular))
+        blurredView.frame = self.view.bounds
+        blurredView.alpha = 0.8
+        self.view.addSubview(blurredView)
+
         let popUp = FPPopUpViewController()
         self.view.addSubview(popUp)
     }
