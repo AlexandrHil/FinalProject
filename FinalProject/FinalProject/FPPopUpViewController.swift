@@ -87,6 +87,8 @@ class FPPopUpViewController: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
 
+        self.backgroundColor = UIColor.systemGray3.withAlphaComponent(0.9)
+
         self.frame = UIScreen.main.bounds
 
         self.addSubview(container)
