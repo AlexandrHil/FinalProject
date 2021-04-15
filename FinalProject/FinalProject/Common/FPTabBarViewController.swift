@@ -36,9 +36,9 @@ class FPTabBarViewController: UITabBarController {
         let attributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14)]
         appearance.setTitleTextAttributes(attributes as [NSAttributedString.Key: Any], for: .normal)
 
-        self.tabBar.barTintColor = .white
-        self.tabBar.tintColor = .red
-        self.tabBar.unselectedItemTintColor = .systemGray
+        self.tabBar.barTintColor = UIColor(hexString: "#BDD5EA")
+        self.tabBar.tintColor = .systemRed
+        self.tabBar.unselectedItemTintColor = UIColor(hexString: "#495867")
 
         self.tabBar.layer.shadowOffset = CGSize(width: 0, height: -5)
         self.tabBar.layer.shadowRadius = 5

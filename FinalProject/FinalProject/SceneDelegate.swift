@@ -34,8 +34,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         buttonStyle.normal.titleTextAttributes = [.foregroundColor: UIColor(red: 0/255, green: 48/255, blue: 73/255, alpha: 1)]
         navBarAppereance.buttonAppearance = buttonStyle
 
-//        UINavigationBar.appearance().standardAppearance = navBarAppereance
-//        UINavigationBar.appearance().barStyle = .default
         UINavigationBar.appearance().prefersLargeTitles = true
         UINavigationBar.appearance().backgroundColor = .cyan
     }

@@ -1,5 +1,5 @@
 //
-//  Ex+NavBarAppereance.swift
+//  NavBarAppereance+Ex.swift
 //  FinalProject
 //
 //  Created by Alex on 14.04.21.

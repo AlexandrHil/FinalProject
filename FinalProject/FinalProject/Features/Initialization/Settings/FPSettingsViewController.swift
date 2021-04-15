@@ -14,8 +14,8 @@ class FPSettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.view.backgroundColor = .systemBlue
+        self.view.backgroundColor = UIColor(hexString: "#F7F7FF")
 
-        configureNavigationBar(largeTitleColor: .systemYellow, backgoundColor: .systemRed, tintColor: .black, title: "Settings", preferredLargeTitle: true)
+        configureNavigationBar(largeTitleColor: .systemYellow, backgoundColor: .systemBlue, tintColor: .black, title: "Settings", preferredLargeTitle: true)
     }
 }
