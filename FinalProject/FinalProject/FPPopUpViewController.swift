@@ -156,7 +156,6 @@ class FPPopUpViewController: UIView {
     // MARK: - actions
 
     @objc private func cancelButtonTapped() {
-        self.backgroundColor = UIColor.white
 
         UIView.animate(withDuration: 0.5) {
             self.container.transform = CGAffineTransform(translationX: 0, y: self.frame.height)
@@ -168,7 +167,6 @@ class FPPopUpViewController: UIView {
     }
 
     @objc private func okButtonTapped() {
-        self.backgroundColor = UIColor.white
 
         UIView.animate(withDuration: 0.5) {
             self.container.transform = CGAffineTransform(translationX: 0, y: -self.frame.height)

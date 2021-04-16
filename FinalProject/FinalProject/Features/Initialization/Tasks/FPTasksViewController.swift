@@ -26,15 +26,12 @@ class FPTasksViewController: UITableViewController {
 
         self.view.backgroundColor = UIColor(hexString: "#F7F7FF")
 
-        let tapgest = UITapGestureRecognizer(target: self, action: #selector(taptoend))
-        self.view.addGestureRecognizer(tapgest)
-
         configureNavigationBar(largeTitleColor: .systemYellow, backgoundColor: .systemRed, tintColor: .black, title: " Today,  \(date)", preferredLargeTitle: true)
 
         self.tableView.register(FPTasksCell.self,
                                 forCellReuseIdentifier: FPTasksCell.reuseIdentifier)
 
-//        self.tableView.isScrollEnabled = false
+        self.tableView.separatorStyle = .none
 
     }
 
@@ -47,13 +44,10 @@ class FPTasksViewController: UITableViewController {
         self.view.backgroundColor = UIColor.systemGray3.withAlphaComponent(0.9)
     }
 
-    @objc func taptoend() {
-        self.view.endEditing(true)
-    }
-
     // MARK: - table view
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
         return self.tasks.count
     }
 
@@ -63,8 +57,25 @@ class FPTasksViewController: UITableViewController {
 
         cell.setCellData(taskName: self.tasks[indexPath.row],
                          taskDescription: "   From: task date")
-        cell.backgroundColor = .systemYellow
 
         return cell
+    }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let alert = UIAlertController(title: self.tasks[indexPath.row],
+                                      message: "Delete task permanently or confirm for today?",
+                                      preferredStyle: .alert)
+
+        let cancelAction = UIAlertAction(title: "Delete", style:
+                                            UIAlertAction.Style.destructive)
+
+        let okAction = UIAlertAction(title: "Confirm", style:
+                                        UIAlertAction.Style.default)
+
+        alert.addAction(cancelAction)
+        alert.addAction(okAction)
+
+        self.present(alert, animated: true, completion: nil)
+        view.layer.backgroundColor = .init(gray: 1, alpha: 3)
     }
 }
