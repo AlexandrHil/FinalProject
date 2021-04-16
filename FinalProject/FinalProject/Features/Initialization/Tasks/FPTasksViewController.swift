@@ -6,9 +6,14 @@
 //
 
 import UIKit
-import SnapKit
 
-class FPTasksViewController: UIViewController {
+class FPTasksViewController: UITableViewController {
+
+    private let tasks: [String] = [
+        "   Task1", "  Task2", "  Task3", "  New task", "  New task"
+    ]
+
+    // MARK: - life cycle functions
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +31,11 @@ class FPTasksViewController: UIViewController {
 
         configureNavigationBar(largeTitleColor: .systemYellow, backgoundColor: .systemRed, tintColor: .black, title: " Today,  \(date)", preferredLargeTitle: true)
 
+        self.tableView.register(FPTasksCell.self,
+                                forCellReuseIdentifier: FPTasksCell.reuseIdentifier)
+
+//        self.tableView.isScrollEnabled = false
+
     }
 
     // MARK: - actions
@@ -39,5 +49,22 @@ class FPTasksViewController: UIViewController {
 
     @objc func taptoend() {
         self.view.endEditing(true)
+    }
+
+    // MARK: - table view
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.tasks.count
+    }
+
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: FPTasksCell.reuseIdentifier,
+                                                 for: indexPath) as? FPTasksCell ?? FPTasksCell()
+
+        cell.setCellData(taskName: self.tasks[indexPath.row],
+                         taskDescription: "  12345678")
+        cell.backgroundColor = .systemYellow
+
+        return cell
     }
 }

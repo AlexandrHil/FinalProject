@@ -10,6 +10,8 @@ import SnapKit
 
 class FPPopUpViewController: UIView {
 
+    // MARK: - gui variables
+
     private var titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -84,6 +86,8 @@ class FPPopUpViewController: UIView {
         return ok
     }()
 
+    // MARK: - initialization
+
     override init(frame: CGRect) {
         super.init(frame: frame)
 
@@ -105,6 +109,8 @@ class FPPopUpViewController: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
+    // MARK: - set up constraints
 
     override func updateConstraints() {
         self.container.snp.updateConstraints { (make) in
@@ -146,6 +152,8 @@ class FPPopUpViewController: UIView {
         }
         super.updateConstraints()
     }
+
+    // MARK: - actions
 
     @objc private func cancelButtonTapped() {
         self.backgroundColor = UIColor.white

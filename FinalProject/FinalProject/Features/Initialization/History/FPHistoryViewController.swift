@@ -9,7 +9,7 @@ import UIKit
 
 class FPHistoryViewController: UIViewController {
 
-    // MARK: - view life cycle
+    // MARK: - life cycle functions
 
     override func viewDidLoad() {
         super.viewDidLoad()

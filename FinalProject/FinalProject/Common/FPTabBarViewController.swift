@@ -9,6 +9,8 @@ import UIKit
 
 class FPTabBarViewController: UITabBarController {
 
+    // MARK: - life cycle functions
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -40,10 +42,10 @@ class FPTabBarViewController: UITabBarController {
         self.tabBar.tintColor = .systemRed
         self.tabBar.unselectedItemTintColor = UIColor(hexString: "#495867")
 
-        self.tabBar.layer.shadowOffset = CGSize(width: 0, height: -5)
-        self.tabBar.layer.shadowRadius = 5
-        self.tabBar.layer.shadowOpacity = 0.5
-        self.tabBar.layer.shadowColor = UIColor.black.cgColor
+//        self.tabBar.layer.shadowOffset = CGSize(width: 0, height: -5)
+//        self.tabBar.layer.shadowRadius = 5
+//        self.tabBar.layer.shadowOpacity = 0.5
+//        self.tabBar.layer.shadowColor = UIColor.black.cgColor
     }
 
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
