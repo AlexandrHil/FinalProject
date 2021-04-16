@@ -9,14 +9,16 @@ import UIKit
 
 class FPTabBarViewController: UITabBarController {
 
+    // MARK: - life cycle functions
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         let tasksController = FPTasksViewController()
-        tasksController.tabBarItem = UITabBarItem(title: "Events", image: UIImage(systemName: "rectangle.stack.fill.badge.plus"), tag: 0)
+        tasksController.tabBarItem = UITabBarItem(title: "Tasks", image: UIImage(systemName: "text.badge.plus"), tag: 0)
 
         let historyController = FPHistoryViewController()
-        historyController.tabBarItem = UITabBarItem(title: "History", image: UIImage(systemName: "calendar.badge.clock"), tag: 1)
+        historyController.tabBarItem = UITabBarItem(title: "History", image: UIImage(systemName: "calendar"), tag: 1)
 
         let settingsController = FPSettingsViewController()
         settingsController.tabBarItem = UITabBarItem(title: "Settings", image: UIImage(systemName: "gearshape.fill"), tag: 2)
@@ -33,17 +35,17 @@ class FPTabBarViewController: UITabBarController {
     func setTabBarAppereance() {
 
         let appearance = UITabBarItem.appearance()
-        let attributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 12)]
+        let attributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14)]
         appearance.setTitleTextAttributes(attributes as [NSAttributedString.Key: Any], for: .normal)
 
-        self.tabBar.barTintColor = .purple
-        self.tabBar.tintColor = .red
-        self.tabBar.unselectedItemTintColor = .systemGray
+        self.tabBar.barTintColor = UIColor(hexString: "#BDD5EA")
+        self.tabBar.tintColor = .systemRed
+        self.tabBar.unselectedItemTintColor = UIColor(hexString: "#495867")
 
-        self.tabBar.layer.shadowOffset = CGSize(width: 0, height: -5)
-        self.tabBar.layer.shadowRadius = 5
-        self.tabBar.layer.shadowOpacity = 0.5
-        self.tabBar.layer.shadowColor = UIColor.black.cgColor
+//        self.tabBar.layer.shadowOffset = CGSize(width: 0, height: -5)
+//        self.tabBar.layer.shadowRadius = 5
+//        self.tabBar.layer.shadowOpacity = 0.5
+//        self.tabBar.layer.shadowColor = UIColor.black.cgColor
     }
 
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {

@@ -10,6 +10,8 @@ import SnapKit
 
 class FPPopUpViewController: UIView {
 
+    // MARK: - gui variables
+
     private var titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -17,8 +19,8 @@ class FPPopUpViewController: UIView {
         label.textAlignment = .center
         label.clipsToBounds = true
         label.text = "New task"
-        label.backgroundColor = UIColor(red: 120/255, green: 0/255, blue: 0/255, alpha: 1)
-        label.textColor = UIColor(red: 105/255, green: 155/255, blue: 188/255, alpha: 1)
+        label.backgroundColor = .systemRed
+        label.textColor = .systemYellow
         label.layer.cornerRadius = 20
         label.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
 
@@ -29,10 +31,10 @@ class FPPopUpViewController: UIView {
         let tv = UITextView()
         tv.translatesAutoresizingMaskIntoConstraints = false
         tv.clipsToBounds = true
-        tv.backgroundColor = UIColor(red: 0/255, green: 48/255, blue: 73/255, alpha: 1)
-        tv.textColor = UIColor(red: 253/255, green: 240/255, blue: 213/255, alpha: 1)
+        tv.backgroundColor = .systemYellow
+        tv.textColor = .systemBlue
         tv.font = UIFont.systemFont(ofSize: 18)
-        tv.tintColor = UIColor(red: 253/255, green: 240/255, blue: 213/255, alpha: 1)
+        tv.tintColor = .systemBlue
         tv.textAlignment = .left
 
         return tv
@@ -56,12 +58,10 @@ class FPPopUpViewController: UIView {
 
     private var cancelButton: UIButton = {
         let cancel = UIButton()
-        cancel.backgroundColor = UIColor(red: 0/255, green: 48/255, blue: 73/255, alpha: 1)
-        cancel.setTitleColor(UIColor(red: 193/255, green: 18/255, blue: 31/255, alpha: 1), for: UIControl.State())
+        cancel.backgroundColor = .systemYellow
+        cancel.setTitleColor(.systemRed, for: UIControl.State())
         cancel.setTitle("Cancel", for: UIControl.State())
         cancel.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
-        cancel.layer.borderWidth = 0.5
-        cancel.layer.borderColor = CGColor(red: 105/255, green: 155/255, blue: 188/255, alpha: 1)
         cancel.clipsToBounds = true
         cancel.translatesAutoresizingMaskIntoConstraints = false
         cancel.layer.cornerRadius = 20
@@ -73,12 +73,10 @@ class FPPopUpViewController: UIView {
 
     private var okButton: UIButton = {
         let ok = UIButton()
-        ok.backgroundColor = UIColor(red: 0/255, green: 48/255, blue: 73/255, alpha: 1)
-        ok.setTitleColor(UIColor(red: 105/255, green: 155/255, blue: 188/255, alpha: 1), for: UIControl.State())
+        ok.backgroundColor = .systemYellow
+        ok.setTitleColor(.systemBlue, for: UIControl.State())
         ok.setTitle("OK", for: UIControl.State())
         ok.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
-        ok.layer.borderWidth = 0.5
-        ok.layer.borderColor = CGColor(red: 105/255, green: 155/255, blue: 188/255, alpha: 1)
         ok.clipsToBounds = true
         ok.translatesAutoresizingMaskIntoConstraints = false
         ok.layer.cornerRadius = 20
@@ -88,8 +86,12 @@ class FPPopUpViewController: UIView {
         return ok
     }()
 
+    // MARK: - initialization
+
     override init(frame: CGRect) {
         super.init(frame: frame)
+
+        self.backgroundColor = UIColor.systemGray3.withAlphaComponent(0.9)
 
         self.frame = UIScreen.main.bounds
 
@@ -108,22 +110,24 @@ class FPPopUpViewController: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
+    // MARK: - set up constraints
+
     override func updateConstraints() {
         self.container.snp.updateConstraints { (make) in
             make.left.right.equalToSuperview().inset(30)
-            make.top.equalToSuperview().offset(250)
+            make.top.equalToSuperview().offset(180)
             make.height.equalTo(200)
         }
 
         self.stack.snp.updateConstraints { (make) in
             make.left.right.equalToSuperview().inset(30)
-            make.top.equalToSuperview().offset(250)
+            make.top.equalToSuperview().offset(180)
             make.height.equalTo(200)
         }
 
         self.titleLabel.snp.updateConstraints { (make) in
             make.left.right.equalToSuperview().inset(30)
-            make.top.equalToSuperview().offset(250)
+            make.top.equalToSuperview().offset(180)
             make.height.equalTo(50)
         }
 
@@ -146,11 +150,14 @@ class FPPopUpViewController: UIView {
             make.top.equalTo(container).inset(150)
             make.bottom.equalTo(container)
         }
-
         super.updateConstraints()
     }
 
+    // MARK: - actions
+
     @objc private func cancelButtonTapped() {
+        self.backgroundColor = UIColor.white
+
         UIView.animate(withDuration: 0.5) {
             self.container.transform = CGAffineTransform(translationX: 0, y: self.frame.height)
             self.titleLabel.transform = CGAffineTransform(translationX: 0, y: self.frame.height)
@@ -161,6 +168,8 @@ class FPPopUpViewController: UIView {
     }
 
     @objc private func okButtonTapped() {
+        self.backgroundColor = UIColor.white
+
         UIView.animate(withDuration: 0.5) {
             self.container.transform = CGAffineTransform(translationX: 0, y: -self.frame.height)
             self.titleLabel.transform = CGAffineTransform(translationX: 0, y: -self.frame.height)

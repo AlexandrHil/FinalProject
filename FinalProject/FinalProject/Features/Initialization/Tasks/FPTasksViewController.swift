@@ -6,21 +6,14 @@
 //
 
 import UIKit
-import SnapKit
 
-class FPTasksViewController: UIViewController {
+class FPTasksViewController: UITableViewController {
 
-    private lazy var dateLabel: UILabel = {
-        let label = UILabel()
-        label.text = " Today,  \(date)"
-        label.backgroundColor = UIColor(red: 105/255, green: 155/255, blue: 188/255, alpha: 1)
-        label.textColor = UIColor(red: 0/255, green: 48/255, blue: 73/255, alpha: 1)
-        label.font = UIFont.systemFont(ofSize: 30)
-        label.textAlignment = .center
-        label.translatesAutoresizingMaskIntoConstraints = false
+    private let tasks: [String] = [
+        "   Task1", "  Task2", "  Task3", "  New task", "  New task"
+    ]
 
-        return label
-    }()
+    // MARK: - life cycle functions
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,35 +21,50 @@ class FPTasksViewController: UIViewController {
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
 
         self.navigationItem.setRightBarButton(addButton, animated: false)
-        self.navigationItem.rightBarButtonItem?.tintColor = UIColor(red: 0/255, green: 48/255, blue: 73/255, alpha: 1)
+        self.navigationItem.rightBarButtonItem?.tintColor = UIColor(hexString: "#495867")
         self.navigationItem.rightBarButtonItem?.style = .done
 
-        self.view.backgroundColor = UIColor(red: 253/255, green: 240/255, blue: 213/255, alpha: 1)
-
-        self.view.addSubview(dateLabel)
+        self.view.backgroundColor = UIColor(hexString: "#F7F7FF")
 
         let tapgest = UITapGestureRecognizer(target: self, action: #selector(taptoend))
         self.view.addGestureRecognizer(tapgest)
 
-        self.updateConstraints()
+        configureNavigationBar(largeTitleColor: .systemYellow, backgoundColor: .systemRed, tintColor: .black, title: " Today,  \(date)", preferredLargeTitle: true)
+
+        self.tableView.register(FPTasksCell.self,
+                                forCellReuseIdentifier: FPTasksCell.reuseIdentifier)
+
+//        self.tableView.isScrollEnabled = false
+
     }
 
     // MARK: - actions
 
-    func updateConstraints() {
-        self.dateLabel.snp.updateConstraints { (make) in
-            make.left.right.equalToSuperview()
-            make.top.equalToSuperview().offset(88)
-            make.height.equalTo(88)
-        }
-    }
-
     @objc func addButtonTapped() {
         let popUp = FPPopUpViewController()
         self.view.addSubview(popUp)
+
+        self.view.backgroundColor = UIColor.systemGray3.withAlphaComponent(0.9)
     }
 
     @objc func taptoend() {
         self.view.endEditing(true)
+    }
+
+    // MARK: - table view
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.tasks.count
+    }
+
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: FPTasksCell.reuseIdentifier,
+                                                 for: indexPath) as? FPTasksCell ?? FPTasksCell()
+
+        cell.setCellData(taskName: self.tasks[indexPath.row],
+                         taskDescription: "  12345678")
+        cell.backgroundColor = .systemYellow
+
+        return cell
     }
 }

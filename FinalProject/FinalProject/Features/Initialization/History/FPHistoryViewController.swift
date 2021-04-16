@@ -9,15 +9,14 @@ import UIKit
 
 class FPHistoryViewController: UIViewController {
 
-    // MARK: - view life cycle
+    // MARK: - life cycle functions
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.view.backgroundColor = .systemBlue
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.title = "History"
-        navigationController?.navigationBar.backgroundColor = .brown
-    }
+        self.view.backgroundColor = UIColor(hexString: "#F7F7FF")
 
+        configureNavigationBar(largeTitleColor: .systemBlue, backgoundColor: .systemYellow, tintColor: .black, title: "History", preferredLargeTitle: true)
+
+    }
 }

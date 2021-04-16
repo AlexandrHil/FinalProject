@@ -9,15 +9,13 @@ import UIKit
 
 class FPSettingsViewController: UIViewController {
 
-    // MARK: - view life cycle
+    // MARK: - life cycle functions
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.view.backgroundColor = .systemGreen
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.title = "Settings"
-        navigationController?.navigationBar.backgroundColor = .systemYellow
-    }
+        self.view.backgroundColor = UIColor(hexString: "#F7F7FF")
 
+        configureNavigationBar(largeTitleColor: .systemYellow, backgoundColor: .systemBlue, tintColor: .black, title: "Settings", preferredLargeTitle: true)
+    }
 }

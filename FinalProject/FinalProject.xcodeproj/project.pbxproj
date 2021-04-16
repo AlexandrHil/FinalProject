@@ -17,8 +17,11 @@
 		FA2BB97E2627192500246242 /* FPSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2BB97D2627192500246242 /* FPSettingsViewController.swift */; };
 		FA2BB9812627195400246242 /* FPHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2BB9802627195400246242 /* FPHistoryViewController.swift */; };
 		FA2BB99226275C7600246242 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA2BB99126275C7600246242 /* Main.storyboard */; };
+		FA96AEAB26278D740046C859 /* NavBarAppereance+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA96AEAA26278D740046C859 /* NavBarAppereance+Ex.swift */; };
+		FA96AEB02628423D0046C859 /* HexColor+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA96AEAF2628423D0046C859 /* HexColor+Ex.swift */; };
 		FAA8C05F26235CFE00456B68 /* FPPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA8C05E26235CFE00456B68 /* FPPopUpViewController.swift */; };
 		FACC312F261A13A20019C319 /* Date+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACC312E261A13A20019C319 /* Date+Ex.swift */; };
+		FAEFDD552629912A00F38FA2 /* FPTasksCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEFDD542629912A00F38FA2 /* FPTasksCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,8 +39,11 @@
 		FA2BB97D2627192500246242 /* FPSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPSettingsViewController.swift; sourceTree = "<group>"; };
 		FA2BB9802627195400246242 /* FPHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPHistoryViewController.swift; sourceTree = "<group>"; };
 		FA2BB99126275C7600246242 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		FA96AEAA26278D740046C859 /* NavBarAppereance+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavBarAppereance+Ex.swift"; sourceTree = "<group>"; };
+		FA96AEAF2628423D0046C859 /* HexColor+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HexColor+Ex.swift"; sourceTree = "<group>"; };
 		FAA8C05E26235CFE00456B68 /* FPPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPPopUpViewController.swift; sourceTree = "<group>"; };
 		FACC312E261A13A20019C319 /* Date+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ex.swift"; sourceTree = "<group>"; };
+		FAEFDD542629912A00F38FA2 /* FPTasksCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPTasksCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,9 +127,9 @@
 		FA2BB98A2627589700246242 /* Initialization */ = {
 			isa = PBXGroup;
 			children = (
+				FA2BB98B262758B600246242 /* Tasks */,
 				FA2BB98F2627595000246242 /* History */,
 				FA2BB98D2627593600246242 /* Settings */,
-				FA2BB98B262758B600246242 /* Tasks */,
 			);
 			path = Initialization;
 			sourceTree = "<group>";
@@ -132,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				FA12D2802614E353003CE904 /* FPTasksViewController.swift */,
+				FAEFDD542629912A00F38FA2 /* FPTasksCell.swift */,
 			);
 			path = Tasks;
 			sourceTree = "<group>";
@@ -166,6 +173,8 @@
 			isa = PBXGroup;
 			children = (
 				FACC312E261A13A20019C319 /* Date+Ex.swift */,
+				FA96AEAA26278D740046C859 /* NavBarAppereance+Ex.swift */,
+				FA96AEAF2628423D0046C859 /* HexColor+Ex.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -303,10 +312,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA96AEB02628423D0046C859 /* HexColor+Ex.swift in Sources */,
+				FA96AEAB26278D740046C859 /* NavBarAppereance+Ex.swift in Sources */,
 				FA12D2812614E353003CE904 /* FPTasksViewController.swift in Sources */,
 				FA12D27D2614E353003CE904 /* AppDelegate.swift in Sources */,
 				FACC312F261A13A20019C319 /* Date+Ex.swift in Sources */,
 				FA12D27F2614E353003CE904 /* SceneDelegate.swift in Sources */,
+				FAEFDD552629912A00F38FA2 /* FPTasksCell.swift in Sources */,
 				FA2BB97E2627192500246242 /* FPSettingsViewController.swift in Sources */,
 				FA2BB97B262718F500246242 /* FPTabBarViewController.swift in Sources */,
 				FAA8C05F26235CFE00456B68 /* FPPopUpViewController.swift in Sources */,
