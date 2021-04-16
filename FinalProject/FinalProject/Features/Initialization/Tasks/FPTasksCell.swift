@@ -37,7 +37,7 @@ class FPTasksCell: UITableViewCell {
         let description = UILabel()
         description.translatesAutoresizingMaskIntoConstraints = false
         description.numberOfLines = 1
-        description.text = "The City of Chicago covers an area of 60,000 hectares"
+//        description.text = "The City of Chicago covers an area of 60,000 hectares"
         description.tintColor = .black
 
         return description

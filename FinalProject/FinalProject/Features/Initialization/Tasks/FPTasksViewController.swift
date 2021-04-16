@@ -62,7 +62,7 @@ class FPTasksViewController: UITableViewController {
                                                  for: indexPath) as? FPTasksCell ?? FPTasksCell()
 
         cell.setCellData(taskName: self.tasks[indexPath.row],
-                         taskDescription: "  12345678")
+                         taskDescription: "   From: task date")
         cell.backgroundColor = .systemYellow
 
         return cell
