@@ -7,11 +7,11 @@
 
 import UIKit
 
-class FPTasksViewController: UITableViewController {
+class FPTasksViewController: UITableViewController, FPPopUpViewControllerDelegate {
 
-    private let tasks: [String] = [
-        "   Task1", "  Task2", "  Task3", "  New task", "  New task"
-    ]
+    let date = String(DateFormatter.localizedString(from: NSDate() as Date, dateStyle: .long, timeStyle: .none))
+
+    var tasks = [FPTaskInfo]()
 
     // MARK: - life cycle functions
 
@@ -26,15 +26,12 @@ class FPTasksViewController: UITableViewController {
 
         self.view.backgroundColor = UIColor(hexString: "#F7F7FF")
 
-        let tapgest = UITapGestureRecognizer(target: self, action: #selector(taptoend))
-        self.view.addGestureRecognizer(tapgest)
-
         configureNavigationBar(largeTitleColor: .systemYellow, backgoundColor: .systemRed, tintColor: .black, title: " Today,  \(date)", preferredLargeTitle: true)
 
         self.tableView.register(FPTasksCell.self,
                                 forCellReuseIdentifier: FPTasksCell.reuseIdentifier)
 
-//        self.tableView.isScrollEnabled = false
+        self.tableView.separatorStyle = .none
 
     }
 
@@ -42,18 +39,18 @@ class FPTasksViewController: UITableViewController {
 
     @objc func addButtonTapped() {
         let popUp = FPPopUpViewController()
+        popUp.delegate = self
+
         self.view.addSubview(popUp)
+        self.view.becomeFirstResponder()
 
-        self.view.backgroundColor = UIColor.systemGray3.withAlphaComponent(0.9)
-    }
-
-    @objc func taptoend() {
-        self.view.endEditing(true)
+        self.view.backgroundColor = UIColor.systemGray3.withAlphaComponent(0.8)
     }
 
     // MARK: - table view
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
         return self.tasks.count
     }
 
@@ -61,10 +58,22 @@ class FPTasksViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: FPTasksCell.reuseIdentifier,
                                                  for: indexPath) as? FPTasksCell ?? FPTasksCell()
 
-        cell.setCellData(taskName: self.tasks[indexPath.row],
-                         taskDescription: "  12345678")
-        cell.backgroundColor = .systemYellow
+        let task = tasks[indexPath.row]
+
+        cell.setCellData(taskName: task.taskTitle, taskDescription: "  from \(date.lowercased())")
 
         return cell
     }
+
+    func FPPopUpViewControllerOkButtonTapped(_ controller: FPPopUpViewController, didFinishAdding newTask: FPTaskInfo) {
+        let newRowIndex = tasks.count
+        tasks.append(newTask)
+
+        let indexPath = IndexPath(row: newRowIndex, section: 0)
+        let indexPaths = [indexPath]
+
+        tableView.insertRows(at: indexPaths, with: .automatic)
+//        navigationController?.popViewController(animated: true)
+    }
+
 }

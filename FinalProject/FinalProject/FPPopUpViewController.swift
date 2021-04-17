@@ -8,14 +8,20 @@
 import UIKit
 import SnapKit
 
+protocol FPPopUpViewControllerDelegate: class {
+    func FPPopUpViewControllerOkButtonTapped(_ controller: FPPopUpViewController, didFinishAdding newTask: FPTaskInfo)
+}
+
 class FPPopUpViewController: UIView {
+
+    weak var delegate: FPPopUpViewControllerDelegate?
 
     // MARK: - gui variables
 
     private var titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.systemFont(ofSize: 30, weight: .bold)
+        label.font = UIFont.systemFont(ofSize: 36, weight: .bold)
         label.textAlignment = .center
         label.clipsToBounds = true
         label.text = "New task"
@@ -36,6 +42,8 @@ class FPPopUpViewController: UIView {
         tv.font = UIFont.systemFont(ofSize: 18)
         tv.tintColor = .systemBlue
         tv.textAlignment = .left
+        tv.isScrollEnabled = true
+        tv.showsHorizontalScrollIndicator = true
 
         return tv
     }()
@@ -91,7 +99,7 @@ class FPPopUpViewController: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
 
-        self.backgroundColor = UIColor.systemGray3.withAlphaComponent(0.9)
+        self.backgroundColor = UIColor.systemGray3.withAlphaComponent(0.7)
 
         self.frame = UIScreen.main.bounds
 
@@ -156,7 +164,6 @@ class FPPopUpViewController: UIView {
     // MARK: - actions
 
     @objc private func cancelButtonTapped() {
-        self.backgroundColor = UIColor.white
 
         UIView.animate(withDuration: 0.5) {
             self.container.transform = CGAffineTransform(translationX: 0, y: self.frame.height)
@@ -165,10 +172,10 @@ class FPPopUpViewController: UIView {
             self.okButton.transform = CGAffineTransform(translationX: 0, y: self.frame.height)
             self.cancelButton.transform = CGAffineTransform(translationX: 0, y: self.frame.height)
         }
+        self.backgroundColor = .clear
     }
 
     @objc private func okButtonTapped() {
-        self.backgroundColor = UIColor.white
 
         UIView.animate(withDuration: 0.5) {
             self.container.transform = CGAffineTransform(translationX: 0, y: -self.frame.height)
@@ -177,5 +184,10 @@ class FPPopUpViewController: UIView {
             self.okButton.transform = CGAffineTransform(translationX: 0, y: -self.frame.height)
             self.cancelButton.transform = CGAffineTransform(translationX: 0, y: -self.frame.height)
         }
+        self.backgroundColor = .clear
+
+        let taskTitle = FPTaskInfo(taskTitle: textView.text)
+
+        delegate?.FPPopUpViewControllerOkButtonTapped(self, didFinishAdding: taskTitle)
     }
 }

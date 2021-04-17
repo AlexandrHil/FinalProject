@@ -37,7 +37,6 @@ class FPTasksCell: UITableViewCell {
         let description = UILabel()
         description.translatesAutoresizingMaskIntoConstraints = false
         description.numberOfLines = 1
-        description.text = "The City of Chicago covers an area of 60,000 hectares"
         description.tintColor = .black
 
         return description
@@ -71,27 +70,33 @@ class FPTasksCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        self.taskContainerView.backgroundColor = isSelected ? .red : .white
+        self.contentView.backgroundColor = .systemYellow
+
+        self.taskContainerView.backgroundColor = isSelected ? UIColor(hexString: "#BDD5EA") : .white
     }
 
     // MARK: - set up constraints
 
     override func updateConstraints() {
         self.taskContainerView.snp.updateConstraints { (make) in
-//            make.top.equalToSuperview().inset(10)
-            make.top.left.right.bottom.equalToSuperview().inset(10)
+            make.left.right.equalToSuperview().inset(10)
+            make.top.bottom.equalToSuperview().inset(5)
         }
 
         self.taskName.snp.updateConstraints { (make) in
-            make.top.left.right.equalToSuperview().inset(10)
-            make.height.equalTo(53)
+            make.left.right.equalToSuperview().inset(10)
+            make.top.equalToSuperview().inset(5)
+            make.height.equalTo(66)
         }
 
         self.taskDescription.snp.updateConstraints { (make) in
             make.top.equalTo(self.taskName.snp.bottom)
-            make.height.equalTo(40)
+            make.height.equalTo(43)
             make.left.right.bottom.equalToSuperview().inset(10)
         }
         super.updateConstraints()
     }
-}
+
+    // MARK: - actions
+
+    }
