@@ -7,11 +7,11 @@
 
 import UIKit
 
-class FPTasksViewController: UITableViewController {
+class FPTasksViewController: UITableViewController, FPPopUpViewControllerDelegate {
 
-    private let tasks: [String] = [
-        "   Task1", "  Task2", "  Task3", "  New task", "  New task"
-    ]
+    let date = String(DateFormatter.localizedString(from: NSDate() as Date, dateStyle: .long, timeStyle: .none))
+
+    var tasks = [FPTaskInfo]()
 
     // MARK: - life cycle functions
 
@@ -39,9 +39,12 @@ class FPTasksViewController: UITableViewController {
 
     @objc func addButtonTapped() {
         let popUp = FPPopUpViewController()
-        self.view.addSubview(popUp)
+        popUp.delegate = self
 
-        self.view.backgroundColor = UIColor.systemGray3.withAlphaComponent(0.9)
+        self.view.addSubview(popUp)
+        self.view.becomeFirstResponder()
+
+        self.view.backgroundColor = UIColor.systemGray3.withAlphaComponent(0.8)
     }
 
     // MARK: - table view
@@ -55,27 +58,22 @@ class FPTasksViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: FPTasksCell.reuseIdentifier,
                                                  for: indexPath) as? FPTasksCell ?? FPTasksCell()
 
-        cell.setCellData(taskName: self.tasks[indexPath.row],
-                         taskDescription: "   From: task date")
+        let task = tasks[indexPath.row]
+
+        cell.setCellData(taskName: task.taskTitle, taskDescription: "  from \(date.lowercased())")
 
         return cell
     }
 
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let alert = UIAlertController(title: self.tasks[indexPath.row],
-                                      message: "Delete task permanently or confirm for today?",
-                                      preferredStyle: .alert)
+    func FPPopUpViewControllerOkButtonTapped(_ controller: FPPopUpViewController, didFinishAdding newTask: FPTaskInfo) {
+        let newRowIndex = tasks.count
+        tasks.append(newTask)
 
-        let cancelAction = UIAlertAction(title: "Delete", style:
-                                            UIAlertAction.Style.destructive)
+        let indexPath = IndexPath(row: newRowIndex, section: 0)
+        let indexPaths = [indexPath]
 
-        let okAction = UIAlertAction(title: "Confirm", style:
-                                        UIAlertAction.Style.default)
-
-        alert.addAction(cancelAction)
-        alert.addAction(okAction)
-
-        self.present(alert, animated: true, completion: nil)
-        view.layer.backgroundColor = .init(gray: 1, alpha: 3)
+        tableView.insertRows(at: indexPaths, with: .automatic)
+//        navigationController?.popViewController(animated: true)
     }
+
 }
