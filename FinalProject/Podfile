@@ -8,5 +8,6 @@ target 'FinalProject' do
   # Pods for FinalProject
 
   pod 'SnapKit', '~> 5.0.0'
+pod 'FSCalendar' 
 
 end

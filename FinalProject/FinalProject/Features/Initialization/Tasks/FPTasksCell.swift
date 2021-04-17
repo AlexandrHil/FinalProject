@@ -96,7 +96,6 @@ class FPTasksCell: UITableViewCell {
         }
         super.updateConstraints()
     }
-    
+
     // MARK: - actions
-    
 }
