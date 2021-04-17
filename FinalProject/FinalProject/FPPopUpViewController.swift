@@ -42,9 +42,6 @@ class FPPopUpViewController: UIView {
         tv.font = UIFont.systemFont(ofSize: 18)
         tv.tintColor = .systemBlue
         tv.textAlignment = .left
-        tv.isScrollEnabled = true
-        tv.showsHorizontalScrollIndicator = true
-
         return tv
     }()
 
