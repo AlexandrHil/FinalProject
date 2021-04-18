@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 
 protocol FPPopUpViewControllerDelegate: class {
-    func FPPopUpViewControllerOkButtonTapped(_ controller: FPPopUpViewController, didFinishAdding newTask: FPTaskInfo)
+    func FPPopUpViewControllerOkButtonTapped(_ controller: FPPopUpViewController, didFinishAdding newTask: FPTask)
 }
 
 class FPPopUpViewController: UIView {
@@ -183,7 +183,7 @@ class FPPopUpViewController: UIView {
         }
         self.backgroundColor = .clear
 
-        let taskTitle = FPTaskInfo(taskTitle: " \(textView.text ?? "")")
+        let taskTitle = FPTask(taskTitle: textView.text, taskDescription: "")
 
         delegate?.FPPopUpViewControllerOkButtonTapped(self, didFinishAdding: taskTitle)
     }

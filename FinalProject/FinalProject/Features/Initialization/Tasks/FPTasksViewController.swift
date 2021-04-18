@@ -11,7 +11,11 @@ class FPTasksViewController: UITableViewController, FPPopUpViewControllerDelegat
 
     let date = String(DateFormatter.localizedString(from: NSDate() as Date, dateStyle: .long, timeStyle: .none))
 
-    var tasks = [FPTaskInfo]()
+    private var tasks: [FPTask] = FPDefaults.sh.tasks {
+        didSet {
+            FPDefaults.sh.tasks = self.tasks
+        }
+    }
 
     // MARK: - life cycle functions
 
@@ -39,9 +43,9 @@ class FPTasksViewController: UITableViewController, FPPopUpViewControllerDelegat
 
     // MARK: - actions
 
-    func FPPopUpViewControllerOkButtonTapped(_ controller: FPPopUpViewController, didFinishAdding newTask: FPTaskInfo) {
+    func FPPopUpViewControllerOkButtonTapped(_ controller: FPPopUpViewController, didFinishAdding newTask: FPTask) {
         let newRowIndex = tasks.count
-        tasks.append(newTask)
+        self.tasks.append(newTask)
 
         let indexPath = IndexPath(row: newRowIndex, section: 0)
 
@@ -60,7 +64,6 @@ class FPTasksViewController: UITableViewController, FPPopUpViewControllerDelegat
 
     @objc func didTapTableView(_ gestureRecognizer: UILongPressGestureRecognizer) {
         self.tableView.backgroundColor = .black
-        print("tapped")
     }
 
     // MARK: - table view
@@ -86,7 +89,7 @@ class FPTasksViewController: UITableViewController, FPPopUpViewControllerDelegat
 
         let task = tasks[indexPath.row]
 
-        cell.setCellData(taskName: task.taskTitle, taskDescription: " from \(date.lowercased())")
+        cell.setCellData(taskName: "  \(task.taskTitle)", taskDescription: "  from \(date.lowercased())")
 
         return cell
     }

@@ -62,8 +62,8 @@ class FPTasksCell: UITableViewCell {
     }
 
     func setCell(model: FPTask) {
-        self.taskName.text = model.title
-        self.taskDescription.text = model.description
+        self.taskName.text = model.taskTitle
+        self.taskDescription.text = model.taskDescription
 
         self.setNeedsUpdateConstraints()
     }

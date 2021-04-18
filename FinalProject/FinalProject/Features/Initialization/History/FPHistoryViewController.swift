@@ -10,9 +10,9 @@ import FSCalendar
 
 class FPHistoryViewController: UIViewController {
 
-    var tasks: [FPTask] = [FPTask(title: "qqqqqq", description: "wwwwww"),
-                           FPTask(title: "aaaaaa", description: "sssss"),
-                           FPTask(title: "zzzzz", description: "xxxxxxx")]
+    var tasks: [FPTask] = [FPTask(taskTitle: "qqqqqq", taskDescription: "wwwwww"),
+                           FPTask(taskTitle: "aaaaaa", taskDescription: "sssss"),
+                           FPTask(taskTitle: "zzzzz", taskDescription: "xxxxxxx")]
 
     // MARK: - gui variables
 
@@ -58,7 +58,7 @@ class FPHistoryViewController: UIViewController {
 
         self.calendar?.snp.updateConstraints { (make) in
             make.left.right.equalToSuperview().inset(10)
-            make.top.equalToSuperview().offset(330)
+            make.top.equalToSuperview().offset(310)
             make.bottom.equalToSuperview().inset(30)
         }
 
@@ -67,22 +67,6 @@ class FPHistoryViewController: UIViewController {
             make.height.equalTo(300)
         }
     }
-
-    // MARK: - set up constraints
-
-//    override func updateViewConstraints() {
-//        self.calendar?.snp.updateConstraints { (make) in
-//            make.left.right.equalToSuperview().inset(10)
-//            make.top.equalToSuperview().offset(330)
-//            make.bottom.equalToSuperview().inset(30)
-//        }
-//
-//        self.tableView.snp.makeConstraints { (make) in
-//            make.top.equalToSuperview().inset(10)
-//            make.height.equalTo(300)
-//        }
-//        super.updateViewConstraints()
-//    }
 }
 
 extension FPHistoryViewController: UITableViewDelegate, UITableViewDataSource {
@@ -96,5 +80,10 @@ extension FPHistoryViewController: UITableViewDelegate, UITableViewDataSource {
             cell.setCell(model: self.tasks[indexPath.row])
         }
         return cell
+    }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+
+        return 100
     }
 }

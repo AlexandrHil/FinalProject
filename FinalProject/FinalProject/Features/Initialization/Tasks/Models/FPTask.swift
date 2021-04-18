@@ -8,6 +8,6 @@
 import Foundation
 
 struct FPTask: Codable {
-    let title: String
-    let description: String?
+    let taskTitle: String
+    let taskDescription: String?
 }
