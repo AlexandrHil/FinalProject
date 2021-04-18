@@ -23,6 +23,7 @@
 		FAEFDD552629912A00F38FA2 /* FPTasksCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEFDD542629912A00F38FA2 /* FPTasksCell.swift */; };
 		FAEFDD69262AF5F200F38FA2 /* FPTaskInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEFDD68262AF5F200F38FA2 /* FPTaskInfo.swift */; };
 		FAEFDD7A262B53B700F38FA2 /* Calendar+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEFDD79262B53B700F38FA2 /* Calendar+Ex.swift */; };
+		FAEFDD8C262B69F700F38FA2 /* FPDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEFDD8B262B69F700F38FA2 /* FPDefaults.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		FAEFDD542629912A00F38FA2 /* FPTasksCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPTasksCell.swift; sourceTree = "<group>"; };
 		FAEFDD68262AF5F200F38FA2 /* FPTaskInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPTaskInfo.swift; sourceTree = "<group>"; };
 		FAEFDD79262B53B700F38FA2 /* Calendar+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Calendar+Ex.swift"; sourceTree = "<group>"; };
+		FAEFDD8B262B69F700F38FA2 /* FPDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPDefaults.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 		FA2BB9872627582700246242 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				FAEFDD8A262B69D800F38FA2 /* DataSaving */,
 				FA2BB97A262718F500246242 /* FPTabBarViewController.swift */,
 			);
 			path = Common;
@@ -188,6 +191,14 @@
 				FAEFDD68262AF5F200F38FA2 /* FPTaskInfo.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		FAEFDD8A262B69D800F38FA2 /* DataSaving */ = {
+			isa = PBXGroup;
+			children = (
+				FAEFDD8B262B69F700F38FA2 /* FPDefaults.swift */,
+			);
+			path = DataSaving;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -328,6 +339,7 @@
 				FAEFDD7A262B53B700F38FA2 /* Calendar+Ex.swift in Sources */,
 				FA12D2812614E353003CE904 /* FPTasksViewController.swift in Sources */,
 				FA12D27D2614E353003CE904 /* AppDelegate.swift in Sources */,
+				FAEFDD8C262B69F700F38FA2 /* FPDefaults.swift in Sources */,
 				FAEFDD69262AF5F200F38FA2 /* FPTaskInfo.swift in Sources */,
 				FA12D27F2614E353003CE904 /* SceneDelegate.swift in Sources */,
 				FAEFDD552629912A00F38FA2 /* FPTasksCell.swift in Sources */,

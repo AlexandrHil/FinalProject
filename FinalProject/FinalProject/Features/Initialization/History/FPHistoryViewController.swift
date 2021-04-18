@@ -38,6 +38,8 @@ class FPHistoryViewController: UIViewController {
         self.calendar = calendar
     }
 
+    // MARK: - set up constraints
+
     override func updateViewConstraints() {
         self.calendar?.snp.updateConstraints { (make) in
             make.left.right.equalToSuperview().inset(10)
