@@ -11,7 +11,11 @@ class FPTasksViewController: UITableViewController, FPPopUpViewControllerDelegat
 
     let date = String(DateFormatter.localizedString(from: NSDate() as Date, dateStyle: .long, timeStyle: .none))
 
-    var tasks = [FPTaskInfo]()
+    private var tasks: [FPTask] = FPDefaults.sh.tasks {
+        didSet {
+            FPDefaults.sh.tasks = self.tasks
+        }
+    }
 
     // MARK: - life cycle functions
 
@@ -21,33 +25,58 @@ class FPTasksViewController: UITableViewController, FPPopUpViewControllerDelegat
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
 
         self.navigationItem.setRightBarButton(addButton, animated: false)
-        self.navigationItem.rightBarButtonItem?.tintColor = UIColor(hexString: "#495867")
+        self.navigationItem.rightBarButtonItem?.tintColor = .systemYellow
         self.navigationItem.rightBarButtonItem?.style = .done
-
         self.view.backgroundColor = UIColor(hexString: "#F7F7FF")
 
-        configureNavigationBar(largeTitleColor: .systemYellow, backgoundColor: .systemRed, tintColor: .black, title: " Today,  \(date)", preferredLargeTitle: true)
+        configureNavigationBar(largeTitleColor: .systemYellow, backgoundColor: .systemBlue, tintColor: .black, title: " Today,  \(date)", preferredLargeTitle: true)
 
         self.tableView.register(FPTasksCell.self,
                                 forCellReuseIdentifier: FPTasksCell.reuseIdentifier)
 
         self.tableView.separatorStyle = .none
 
+        let tapGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(didTapTableView))
+
+        tableView.addGestureRecognizer(tapGestureRecognizer)
     }
 
     // MARK: - actions
+
+    func FPPopUpViewControllerOkButtonTapped(_ controller: FPPopUpViewController, didFinishAdding newTask: FPTask) {
+        let newRowIndex = tasks.count
+        self.tasks.append(newTask)
+
+        let indexPath = IndexPath(row: newRowIndex, section: 0)
+
+        tableView.insertRows(at: [indexPath], with: .automatic)
+        navigationController?.popViewController(animated: true)
+    }
 
     @objc func addButtonTapped() {
         let popUp = FPPopUpViewController()
         popUp.delegate = self
 
         self.view.addSubview(popUp)
-        self.view.becomeFirstResponder()
 
         self.view.backgroundColor = UIColor.systemGray3.withAlphaComponent(0.8)
     }
 
+    @objc func didTapTableView(_ gestureRecognizer: UILongPressGestureRecognizer) {
+        self.tableView.backgroundColor = .black
+    }
+
     // MARK: - table view
+
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        switch editingStyle {
+        case .delete:
+            self.tasks.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        default:
+            break
+        }
+    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
@@ -60,20 +89,8 @@ class FPTasksViewController: UITableViewController, FPPopUpViewControllerDelegat
 
         let task = tasks[indexPath.row]
 
-        cell.setCellData(taskName: task.taskTitle, taskDescription: "  from \(date.lowercased())")
+        cell.setCellData(taskName: "  \(task.taskTitle)", taskDescription: "  from \(date.lowercased())")
 
         return cell
     }
-
-    func FPPopUpViewControllerOkButtonTapped(_ controller: FPPopUpViewController, didFinishAdding newTask: FPTaskInfo) {
-        let newRowIndex = tasks.count
-        tasks.append(newTask)
-
-        let indexPath = IndexPath(row: newRowIndex, section: 0)
-        let indexPaths = [indexPath]
-
-        tableView.insertRows(at: indexPaths, with: .automatic)
-//        navigationController?.popViewController(animated: true)
-    }
-
 }

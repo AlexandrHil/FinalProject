@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 
 protocol FPPopUpViewControllerDelegate: class {
-    func FPPopUpViewControllerOkButtonTapped(_ controller: FPPopUpViewController, didFinishAdding newTask: FPTaskInfo)
+    func FPPopUpViewControllerOkButtonTapped(_ controller: FPPopUpViewController, didFinishAdding newTask: FPTask)
 }
 
 class FPPopUpViewController: UIView {
@@ -37,14 +37,11 @@ class FPPopUpViewController: UIView {
         let tv = UITextView()
         tv.translatesAutoresizingMaskIntoConstraints = false
         tv.clipsToBounds = true
-        tv.backgroundColor = .systemYellow
+        tv.backgroundColor = UIColor(hexString: "#F7F7FF")
         tv.textColor = .systemBlue
         tv.font = UIFont.systemFont(ofSize: 18)
         tv.tintColor = .systemBlue
         tv.textAlignment = .left
-        tv.isScrollEnabled = true
-        tv.showsHorizontalScrollIndicator = true
-
         return tv
     }()
 
@@ -186,7 +183,7 @@ class FPPopUpViewController: UIView {
         }
         self.backgroundColor = .clear
 
-        let taskTitle = FPTaskInfo(taskTitle: textView.text)
+        let taskTitle = FPTask(taskTitle: textView.text, taskDescription: "")
 
         delegate?.FPPopUpViewControllerOkButtonTapped(self, didFinishAdding: taskTitle)
     }

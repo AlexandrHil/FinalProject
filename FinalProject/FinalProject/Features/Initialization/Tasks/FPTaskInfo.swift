@@ -9,7 +9,7 @@ import Foundation
 
 class FPTaskInfo {
     var taskTitle: String
-    var date = Date()
+    var taskDescription = ""
 
     init(taskTitle: String) {
         self.taskTitle = taskTitle
