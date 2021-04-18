@@ -37,7 +37,7 @@ class FPPopUpViewController: UIView {
         let tv = UITextView()
         tv.translatesAutoresizingMaskIntoConstraints = false
         tv.clipsToBounds = true
-        tv.backgroundColor = .systemYellow
+        tv.backgroundColor = UIColor(hexString: "#F7F7FF")
         tv.textColor = .systemBlue
         tv.font = UIFont.systemFont(ofSize: 18)
         tv.tintColor = .systemBlue
@@ -183,7 +183,7 @@ class FPPopUpViewController: UIView {
         }
         self.backgroundColor = .clear
 
-        let taskTitle = FPTaskInfo(taskTitle: textView.text)
+        let taskTitle = FPTaskInfo(taskTitle: " \(textView.text ?? "")")
 
         delegate?.FPPopUpViewControllerOkButtonTapped(self, didFinishAdding: taskTitle)
     }

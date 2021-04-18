@@ -10,12 +10,31 @@ import FSCalendar
 
 class FPHistoryViewController: UIViewController {
 
+    var tasks: [FPTask] = [FPTask(title: "qqqqqq", description: "wwwwww"),
+                           FPTask(title: "aaaaaa", description: "sssss"),
+                           FPTask(title: "zzzzz", description: "xxxxxxx")]
+
+    // MARK: - gui variables
+
+    private lazy var tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.register(FPTasksCell.self,
+                  forCellReuseIdentifier: FPTasksCell.reuseIdentifier)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.separatorStyle = .none
+        tableView.delegate = self
+        tableView.dataSource = self
+        return tableView
+      }()
+
     fileprivate weak var calendar: FSCalendar?
 
     // MARK: - life cycle functions
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.view.addSubview(tableView)
 
         self.view.backgroundColor = UIColor(hexString: "#F7F7FF")
 
@@ -36,16 +55,46 @@ class FPHistoryViewController: UIViewController {
         calendar.appearance.selectionColor = .clear
 
         self.calendar = calendar
-    }
 
-    // MARK: - set up constraints
-
-    override func updateViewConstraints() {
         self.calendar?.snp.updateConstraints { (make) in
             make.left.right.equalToSuperview().inset(10)
             make.top.equalToSuperview().offset(330)
             make.bottom.equalToSuperview().inset(30)
         }
-        super.updateViewConstraints()
+
+        self.tableView.snp.makeConstraints { (make) in
+            make.top.left.right.equalToSuperview()
+            make.height.equalTo(300)
+        }
+    }
+
+    // MARK: - set up constraints
+
+//    override func updateViewConstraints() {
+//        self.calendar?.snp.updateConstraints { (make) in
+//            make.left.right.equalToSuperview().inset(10)
+//            make.top.equalToSuperview().offset(330)
+//            make.bottom.equalToSuperview().inset(30)
+//        }
+//
+//        self.tableView.snp.makeConstraints { (make) in
+//            make.top.equalToSuperview().inset(10)
+//            make.height.equalTo(300)
+//        }
+//        super.updateViewConstraints()
+//    }
+}
+
+extension FPHistoryViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.tasks.count
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: FPTasksCell.reuseIdentifier,
+                                                 for: indexPath)
+        if let cell = cell as? FPTasksCell {
+            cell.setCell(model: self.tasks[indexPath.row])
+        }
+        return cell
     }
 }

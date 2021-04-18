@@ -21,11 +21,11 @@ class FPTasksViewController: UITableViewController, FPPopUpViewControllerDelegat
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
 
         self.navigationItem.setRightBarButton(addButton, animated: false)
-        self.navigationItem.rightBarButtonItem?.tintColor = UIColor(hexString: "#495867")
+        self.navigationItem.rightBarButtonItem?.tintColor = .systemYellow
         self.navigationItem.rightBarButtonItem?.style = .done
         self.view.backgroundColor = UIColor(hexString: "#F7F7FF")
 
-        configureNavigationBar(largeTitleColor: .systemYellow, backgoundColor: .systemRed, tintColor: .black, title: " Today,  \(date)", preferredLargeTitle: true)
+        configureNavigationBar(largeTitleColor: .systemYellow, backgoundColor: .systemBlue, tintColor: .black, title: " Today,  \(date)", preferredLargeTitle: true)
 
         self.tableView.register(FPTasksCell.self,
                                 forCellReuseIdentifier: FPTasksCell.reuseIdentifier)
@@ -65,6 +65,16 @@ class FPTasksViewController: UITableViewController, FPPopUpViewControllerDelegat
 
     // MARK: - table view
 
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        switch editingStyle {
+        case .delete:
+            self.tasks.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        default:
+            break
+        }
+    }
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
         return self.tasks.count
@@ -76,16 +86,8 @@ class FPTasksViewController: UITableViewController, FPPopUpViewControllerDelegat
 
         let task = tasks[indexPath.row]
 
-        cell.setCellData(taskName: task.taskTitle, taskDescription: "  from \(date.lowercased())")
+        cell.setCellData(taskName: task.taskTitle, taskDescription: " from \(date.lowercased())")
 
         return cell
-    }
-
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        guard editingStyle == .delete else { return }
-
-        tasks.remove(at: indexPath.row)
-
-        tableView.deleteRows(at: [indexPath], with: .fade)
     }
 }

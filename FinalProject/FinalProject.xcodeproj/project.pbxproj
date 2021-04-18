@@ -24,6 +24,7 @@
 		FAEFDD69262AF5F200F38FA2 /* FPTaskInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEFDD68262AF5F200F38FA2 /* FPTaskInfo.swift */; };
 		FAEFDD7A262B53B700F38FA2 /* Calendar+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEFDD79262B53B700F38FA2 /* Calendar+Ex.swift */; };
 		FAEFDD8C262B69F700F38FA2 /* FPDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEFDD8B262B69F700F38FA2 /* FPDefaults.swift */; };
+		FAEFDDB1262C82BE00F38FA2 /* FPTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEFDDB0262C82BE00F38FA2 /* FPTask.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		FAEFDD68262AF5F200F38FA2 /* FPTaskInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPTaskInfo.swift; sourceTree = "<group>"; };
 		FAEFDD79262B53B700F38FA2 /* Calendar+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Calendar+Ex.swift"; sourceTree = "<group>"; };
 		FAEFDD8B262B69F700F38FA2 /* FPDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPDefaults.swift; sourceTree = "<group>"; };
+		FAEFDDB0262C82BE00F38FA2 /* FPTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPTask.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,8 +145,9 @@
 			isa = PBXGroup;
 			children = (
 				FAEFDD6F262AFE5A00F38FA2 /* Models */,
-				FA12D2802614E353003CE904 /* FPTasksViewController.swift */,
 				FAEFDD542629912A00F38FA2 /* FPTasksCell.swift */,
+				FAEFDD68262AF5F200F38FA2 /* FPTaskInfo.swift */,
+				FA12D2802614E353003CE904 /* FPTasksViewController.swift */,
 			);
 			path = Tasks;
 			sourceTree = "<group>";
@@ -188,7 +191,7 @@
 		FAEFDD6F262AFE5A00F38FA2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				FAEFDD68262AF5F200F38FA2 /* FPTaskInfo.swift */,
+				FAEFDDB0262C82BE00F38FA2 /* FPTask.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -344,6 +347,7 @@
 				FA12D27F2614E353003CE904 /* SceneDelegate.swift in Sources */,
 				FAEFDD552629912A00F38FA2 /* FPTasksCell.swift in Sources */,
 				FA2BB97E2627192500246242 /* FPSettingsViewController.swift in Sources */,
+				FAEFDDB1262C82BE00F38FA2 /* FPTask.swift in Sources */,
 				FA2BB97B262718F500246242 /* FPTabBarViewController.swift in Sources */,
 				FAA8C05F26235CFE00456B68 /* FPPopUpViewController.swift in Sources */,
 				FA2BB9812627195400246242 /* FPHistoryViewController.swift in Sources */,

@@ -37,7 +37,8 @@ class FPTasksCell: UITableViewCell {
         let description = UILabel()
         description.translatesAutoresizingMaskIntoConstraints = false
         description.numberOfLines = 1
-        description.tintColor = .black
+        description.font = UIFont.boldSystemFont(ofSize: 16)
+        description.textColor = .systemBlue
 
         return description
         }()
@@ -58,6 +59,13 @@ class FPTasksCell: UITableViewCell {
         self.contentView.addSubview(self.taskContainerView)
         self.taskContainerView.addSubview(self.taskName)
         self.taskContainerView.addSubview(self.taskDescription)
+    }
+
+    func setCell(model: FPTask) {
+        self.taskName.text = model.title
+        self.taskDescription.text = model.description
+
+        self.setNeedsUpdateConstraints()
     }
 
     func setCellData(taskName: String, taskDescription: String) {
