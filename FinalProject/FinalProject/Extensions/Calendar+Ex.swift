@@ -8,7 +8,7 @@
 import Foundation
 import FSCalendar
 
-extension FPHistoryViewController: FSCalendarDelegate, FSCalendarDataSource {
+extension FPHistoryViewController {
     func calendar(_ calendar: FSCalendar, cellFor date: Date, at position: FSCalendarMonthPosition) -> FSCalendarCell {
         let cell = calendar.dequeueReusableCell(withIdentifier: "CELL", for: date, at: position)
 

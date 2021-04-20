@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FPTasksViewController: UITableViewController, FPPopUpViewControllerDelegate {
+class FPTasksViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, FPPopUpViewControllerDelegate {
 
     let date = String(DateFormatter.localizedString(from: NSDate() as Date, dateStyle: .long, timeStyle: .none))
 
@@ -17,10 +17,27 @@ class FPTasksViewController: UITableViewController, FPPopUpViewControllerDelegat
         }
     }
 
+    // MARK: - gui variables
+
+    private lazy var tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.register(FPTasksCell.self,
+                  forCellReuseIdentifier: FPTasksCell.reuseIdentifier)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.separatorStyle = .none
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.isScrollEnabled = true
+
+        return tableView
+      }()
+
     // MARK: - life cycle functions
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.view.addSubview(tableView)
 
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
 
@@ -34,11 +51,15 @@ class FPTasksViewController: UITableViewController, FPPopUpViewControllerDelegat
         self.tableView.register(FPTasksCell.self,
                                 forCellReuseIdentifier: FPTasksCell.reuseIdentifier)
 
-        self.tableView.separatorStyle = .none
+//        self.tableView.separatorStyle = .none
 
-        let tapGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(didTapTableView))
+//        let tapGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(didTapTableView))
+//
+//        tableView.addGestureRecognizer(tapGestureRecognizer)
 
-        tableView.addGestureRecognizer(tapGestureRecognizer)
+        self.tableView.snp.makeConstraints { (make) in
+            make.edges.equalToSuperview()
+        }
     }
 
     // MARK: - actions
@@ -62,13 +83,13 @@ class FPTasksViewController: UITableViewController, FPPopUpViewControllerDelegat
         self.view.backgroundColor = UIColor.systemGray3.withAlphaComponent(0.8)
     }
 
-    @objc func didTapTableView(_ gestureRecognizer: UILongPressGestureRecognizer) {
-        self.tableView.backgroundColor = .black
-    }
+//    @objc func didTapTableView(_ gestureRecognizer: UILongPressGestureRecognizer) {
+//        self.tableView.backgroundColor = .black
+//    }
 
     // MARK: - table view
 
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         switch editingStyle {
         case .delete:
             self.tasks.remove(at: indexPath.row)
@@ -78,12 +99,12 @@ class FPTasksViewController: UITableViewController, FPPopUpViewControllerDelegat
         }
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
         return self.tasks.count
     }
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: FPTasksCell.reuseIdentifier,
                                                  for: indexPath) as? FPTasksCell ?? FPTasksCell()
 
