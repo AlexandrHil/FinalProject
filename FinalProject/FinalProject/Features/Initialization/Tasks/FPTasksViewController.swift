@@ -47,12 +47,6 @@ class FPTasksViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.tableView.register(FPTasksCell.self,
                                 forCellReuseIdentifier: FPTasksCell.reuseIdentifier)
 
-//        self.tableView.separatorStyle = .none
-
-//        let tapGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(didTapTableView))
-//
-//        tableView.addGestureRecognizer(tapGestureRecognizer)
-
         self.tableView.snp.makeConstraints { (make) in
             make.edges.equalToSuperview()
         }
@@ -68,6 +62,7 @@ class FPTasksViewController: UIViewController, UITableViewDelegate, UITableViewD
 
         tableView.insertRows(at: [indexPath], with: .automatic)
         navigationController?.popViewController(animated: true)
+        FPDB.sh.save(task: newTask)
     }
 
     @objc func addButtonTapped() {
@@ -78,10 +73,6 @@ class FPTasksViewController: UIViewController, UITableViewDelegate, UITableViewD
 
         self.view.backgroundColor = UIColor.systemGray3.withAlphaComponent(0.8)
     }
-
-//    @objc func didTapTableView(_ gestureRecognizer: UILongPressGestureRecognizer) {
-//        self.tableView.backgroundColor = .black
-//    }
 
     // MARK: - table view
 

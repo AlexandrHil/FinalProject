@@ -17,8 +17,6 @@ class FPDatabase {
 
     private static let databaseContainerName = "FPDataModel"
 
-    private let documentsDirectory: URL
-
     // MARK: - core data
 
     private lazy var persistentContainer: NSPersistentContainer = {
@@ -34,17 +32,6 @@ class FPDatabase {
 
     private var context: NSManagedObjectContext {
         self.persistentContainer.viewContext
-    }
-
-    // MARK: - initialization
-
-    private init() {
-        let docDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        if docDirectory.count > 0 {
-            self.documentsDirectory = docDirectory[0]
-        } else {
-            fatalError("Directory doesn't exist")
-        }
     }
 
     // MARK: - core data functions
@@ -71,16 +58,11 @@ class FPDatabase {
     }
 
     func loadTasks() -> [FPTask] {
-        // 1 - запрос к бд
         let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
 
-        let sortDescriptor = NSSortDescriptor(key: #keyPath(Task.taskTitle), ascending: true)
-        fetchRequest.sortDescriptors = [sortDescriptor]
-
         do {
-            // - 2 передаем реквест
             let tasks = try self.context.fetch(fetchRequest)
-            // - 3 трансформируем в обчный вид
+
             return tasks.map { $0.getTask() }
         } catch {
             Swift.debugPrint(error.localizedDescription)
@@ -104,4 +86,3 @@ class FPDatabase {
         return coreDataTask
     }
 }
-

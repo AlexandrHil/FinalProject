@@ -6,15 +6,12 @@
 //
 
 import UIKit
+import CoreData
 import FSCalendar
 
 class FPHistoryViewController: UIViewController, FSCalendarDataSource, FSCalendarDelegate {
 
-    private var tasks: [FPTask] = FPDefaults.sh.tasks {
-        didSet {
-            FPDefaults.sh.tasks = self.tasks
-        }
-    }
+    private var tasks: [FPTask] = FPDB.sh.loadTasks()
 
     // MARK: - gui variables
 
@@ -82,7 +79,7 @@ class FPHistoryViewController: UIViewController, FSCalendarDataSource, FSCalenda
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        tasks = FPDefaults.sh.tasks
+        tasks = FPDB.sh.loadTasks()
         tableView.reloadData()
     }
 
@@ -100,25 +97,6 @@ class FPHistoryViewController: UIViewController, FSCalendarDataSource, FSCalenda
             return .red
         }
         return appearance.selectionColor
-    }
-
-    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, eventColorFor date: Date) -> UIColor? {
-        let key = self.calendarDateFormatter.string(from: date)
-        if self.datesWithMultipleEvents.contains(key) {
-            calendar.appearance.eventDefaultColor = .brown
-            return UIColor.brown
-        }
-            return nil
-
-    }
-
-    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, eventDefaultColorsFor date: Date) -> [UIColor]? {
-        let key = self.calendarDateFormatter.string(from: date)
-        if self.datesWithMultipleEvents.contains(key) {
-            calendar.appearance.eventDefaultColor = .brown
-            return [UIColor.red, UIColor.brown, UIColor.red]
-        }
-        return nil
     }
 }
 
@@ -141,7 +119,6 @@ extension FPHistoryViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(2)
 
         datesWithEvent = ["2021-04-18", "2021-04-17"]
         calendar?.reloadData()

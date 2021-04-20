@@ -5,11 +5,11 @@
 //  Created by Alex on 18.04.21.
 //
 
-import Foundation
+import UIKit
 
-class FPTask: Codable {
-    let taskTitle: String
-    let taskDescription: String
+class FPTask: Decodable {
+    var taskTitle: String
+    var taskDescription: String
 
     enum CodingKeys: String, CodingKey {
         case taskTitle
