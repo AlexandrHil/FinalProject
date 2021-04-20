@@ -65,6 +65,7 @@ class FPHistoryViewController: UIViewController, FSCalendarDataSource, FSCalenda
         calendar.appearance.titleDefaultColor = UIColor(hexString: "#495867")
         calendar.appearance.titleSelectionColor = UIColor(hexString: "#495867")
         calendar.appearance.selectionColor = .clear
+        calendar.firstWeekday = 2
 
         self.calendar = calendar
 
@@ -99,6 +100,25 @@ class FPHistoryViewController: UIViewController, FSCalendarDataSource, FSCalenda
             return .red
         }
         return appearance.selectionColor
+    }
+
+    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, eventColorFor date: Date) -> UIColor? {
+        let key = self.calendarDateFormatter.string(from: date)
+        if self.datesWithMultipleEvents.contains(key) {
+            calendar.appearance.eventDefaultColor = .brown
+            return UIColor.brown
+        }
+            return nil
+
+    }
+
+    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, eventDefaultColorsFor date: Date) -> [UIColor]? {
+        let key = self.calendarDateFormatter.string(from: date)
+        if self.datesWithMultipleEvents.contains(key) {
+            calendar.appearance.eventDefaultColor = .brown
+            return [UIColor.red, UIColor.brown, UIColor.red]
+        }
+        return nil
     }
 }
 
