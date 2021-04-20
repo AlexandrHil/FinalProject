@@ -11,11 +11,7 @@ class FPTasksViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     let date = String(DateFormatter.localizedString(from: NSDate() as Date, dateStyle: .long, timeStyle: .none))
 
-    private var tasks: [FPTask] = FPDefaults.sh.tasks {
-        didSet {
-            FPDefaults.sh.tasks = self.tasks
-        }
-    }
+    private var tasks: [FPTask] = FPDB.sh.loadTasks()
 
     // MARK: - gui variables
 

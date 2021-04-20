@@ -1,6 +1,6 @@
 //
 //  Task+CoreDataProperties.swift
-//  
+//  FinalProject
 //
 //  Created by Alex on 20.04.21.
 //
@@ -8,7 +8,6 @@
 
 import Foundation
 import CoreData
-
 
 extension Task {
 
@@ -18,5 +17,9 @@ extension Task {
 
     @NSManaged public var taskTitle: String
     @NSManaged public var taskDate: String
+
+}
+
+extension Task: Identifiable {
 
 }

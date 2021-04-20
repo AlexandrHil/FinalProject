@@ -2,7 +2,10 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/alex/FinalProject/FinalProject/FinalProject/Common/CoreData/Task+CoreDataClass.swift">
+      location = "group:Task+CoreDataClass.swift">
+   </FileRef>
+   <FileRef
+      location = "group:Task+CoreDataProperties.swift">
    </FileRef>
    <FileRef
       location = "group:FinalProject.xcodeproj">
