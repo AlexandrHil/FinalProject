@@ -28,7 +28,7 @@ class FPTasksCell: UITableViewCell {
         task.layer.cornerRadius = 15
         task.font = UIFont.boldSystemFont(ofSize: 25)
         task.numberOfLines = 1
-        task.textColor = .systemBlue
+        task.textColor = UIColor(hexString: "#495867")
 
         return task
     }()
@@ -38,7 +38,7 @@ class FPTasksCell: UITableViewCell {
         description.translatesAutoresizingMaskIntoConstraints = false
         description.numberOfLines = 1
         description.font = UIFont.boldSystemFont(ofSize: 16)
-        description.textColor = .systemBlue
+        description.textColor = UIColor(hexString: "#495867")
 
         return description
         }()
@@ -104,6 +104,4 @@ class FPTasksCell: UITableViewCell {
         }
         super.updateConstraints()
     }
-
-    // MARK: - actions
 }

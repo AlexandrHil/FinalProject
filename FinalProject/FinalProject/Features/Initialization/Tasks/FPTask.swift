@@ -7,7 +7,7 @@
 
 import Foundation
 
-class FPTaskInfo {
+class FPTask {
     var taskTitle: String
     var taskDescription = ""
 

@@ -33,7 +33,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let buttonStyle = UIBarButtonItemAppearance(style: .plain)
         buttonStyle.normal.titleTextAttributes = [.foregroundColor: UIColor(red: 0/255, green: 48/255, blue: 73/255, alpha: 1)]
         navBarAppereance.buttonAppearance = buttonStyle
-
     }
 
     func changeRootViewController(_ vc: UIViewController, animated: Bool = true) {
