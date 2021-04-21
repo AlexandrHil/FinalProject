@@ -7,33 +7,19 @@
 
 import UIKit
 
-class FPTasksViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, FPPopUpViewControllerDelegate {
+class FPTasksViewController: UITableViewController, FPPopUpViewControllerDelegate {
 
     let date = String(DateFormatter.localizedString(from: NSDate() as Date, dateStyle: .long, timeStyle: .none))
 
     private var tasks: [FPTask] = FPDB.sh.loadTasks()
-
-    // MARK: - gui variables
-
-    private lazy var tableView: UITableView = {
-        let tableView = UITableView()
-        tableView.register(FPTasksCell.self,
-                  forCellReuseIdentifier: FPTasksCell.reuseIdentifier)
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.separatorStyle = .none
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.isScrollEnabled = true
-
-        return tableView
-      }()
 
     // MARK: - life cycle functions
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.view.addSubview(tableView)
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
 
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
 
@@ -44,12 +30,10 @@ class FPTasksViewController: UIViewController, UITableViewDelegate, UITableViewD
 
         configureNavigationBar(largeTitleColor: .systemYellow, backgoundColor: .systemBlue, tintColor: .black, title: " Today,  \(date)", preferredLargeTitle: true)
 
-        self.tableView.register(FPTasksCell.self,
+        self.tableView.register(UITableViewCell.self,
                                 forCellReuseIdentifier: FPTasksCell.reuseIdentifier)
 
-        self.tableView.snp.makeConstraints { (make) in
-            make.edges.equalToSuperview()
-        }
+        self.tableView.isScrollEnabled = true
     }
 
     // MARK: - actions
@@ -61,7 +45,6 @@ class FPTasksViewController: UIViewController, UITableViewDelegate, UITableViewD
         let indexPath = IndexPath(row: newRowIndex, section: 0)
 
         tableView.insertRows(at: [indexPath], with: .automatic)
-        navigationController?.popViewController(animated: true)
         FPDB.sh.save(task: newTask)
     }
 
@@ -76,22 +59,23 @@ class FPTasksViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     // MARK: - table view
 
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         switch editingStyle {
         case .delete:
             self.tasks.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
+            FPDB.sh.delete([tasks[indexPath.row]])
         default:
             break
         }
     }
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
         return self.tasks.count
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: FPTasksCell.reuseIdentifier,
                                                  for: indexPath) as? FPTasksCell ?? FPTasksCell()
 
@@ -100,5 +84,11 @@ class FPTasksViewController: UIViewController, UITableViewDelegate, UITableViewD
         cell.setCellData(taskName: "  \(task.taskTitle)", taskDescription: "  from \(date.lowercased())")
 
         return cell
+    }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let cell = tableView.cellForRow(at: indexPath) {
+            cell.contentView.backgroundColor = .systemGreen
+        }
     }
 }

@@ -120,7 +120,13 @@ extension FPHistoryViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
-        datesWithEvent = ["2021-04-18", "2021-04-17"]
+        let task = tasks[indexPath.row]
+
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let dateString = dateFormatter.string(from: task.taskDate)
+
+        datesWithEvent = [dateString]
         calendar?.reloadData()
     }
 }

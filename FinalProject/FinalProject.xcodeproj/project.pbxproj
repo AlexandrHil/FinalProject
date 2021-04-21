@@ -19,14 +19,13 @@
 		FA2BB99226275C7600246242 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA2BB99126275C7600246242 /* Main.storyboard */; };
 		FA43A51C262F69E20083831B /* Task+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA43A51B262F69E20083831B /* Task+CoreDataProperties.swift */; };
 		FA43A51D262F69E20083831B /* Task+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA43A51A262F69E20083831B /* Task+CoreDataClass.swift */; };
+		FA5F56672630708500E72853 /* FPDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FA5F56652630708500E72853 /* FPDataModel.xcdatamodeld */; };
 		FA96AEAB26278D740046C859 /* NavBarAppereance+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA96AEAA26278D740046C859 /* NavBarAppereance+Ex.swift */; };
 		FA96AEB02628423D0046C859 /* HexColor+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA96AEAF2628423D0046C859 /* HexColor+Ex.swift */; };
 		FAA8C05F26235CFE00456B68 /* FPPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA8C05E26235CFE00456B68 /* FPPopUpViewController.swift */; };
 		FAEFDD552629912A00F38FA2 /* FPTasksCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEFDD542629912A00F38FA2 /* FPTasksCell.swift */; };
-		FAEFDD69262AF5F200F38FA2 /* FPTaskInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEFDD68262AF5F200F38FA2 /* FPTaskInfo.swift */; };
 		FAEFDD7A262B53B700F38FA2 /* Calendar+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEFDD79262B53B700F38FA2 /* Calendar+Ex.swift */; };
 		FAEFDDB1262C82BE00F38FA2 /* FPTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEFDDB0262C82BE00F38FA2 /* FPTask.swift */; };
-		FAEFDDC8262F400900F38FA2 /* FPDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FAEFDDC6262F400900F38FA2 /* FPDataModel.xcdatamodeld */; };
 		FAEFDDF5262F504100F38FA2 /* FPDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEFDDF4262F504100F38FA2 /* FPDatabase.swift */; };
 /* End PBXBuildFile section */
 
@@ -47,14 +46,13 @@
 		FA2BB99126275C7600246242 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		FA43A51A262F69E20083831B /* Task+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataClass.swift"; sourceTree = "<group>"; };
 		FA43A51B262F69E20083831B /* Task+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		FA5F56662630708500E72853 /* FPDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FPDataModel.xcdatamodel; sourceTree = "<group>"; };
 		FA96AEAA26278D740046C859 /* NavBarAppereance+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavBarAppereance+Ex.swift"; sourceTree = "<group>"; };
 		FA96AEAF2628423D0046C859 /* HexColor+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HexColor+Ex.swift"; sourceTree = "<group>"; };
 		FAA8C05E26235CFE00456B68 /* FPPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPPopUpViewController.swift; sourceTree = "<group>"; };
 		FAEFDD542629912A00F38FA2 /* FPTasksCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPTasksCell.swift; sourceTree = "<group>"; };
-		FAEFDD68262AF5F200F38FA2 /* FPTaskInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPTaskInfo.swift; sourceTree = "<group>"; };
 		FAEFDD79262B53B700F38FA2 /* Calendar+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Calendar+Ex.swift"; sourceTree = "<group>"; };
 		FAEFDDB0262C82BE00F38FA2 /* FPTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPTask.swift; sourceTree = "<group>"; };
-		FAEFDDC7262F400900F38FA2 /* FPDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FPDataModel.xcdatamodel; sourceTree = "<group>"; };
 		FAEFDDF4262F504100F38FA2 /* FPDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPDatabase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -151,7 +149,6 @@
 			children = (
 				FA12D2802614E353003CE904 /* FPTasksViewController.swift */,
 				FAEFDD542629912A00F38FA2 /* FPTasksCell.swift */,
-				FAEFDD68262AF5F200F38FA2 /* FPTaskInfo.swift */,
 				FAEFDD6F262AFE5A00F38FA2 /* Models */,
 			);
 			path = Tasks;
@@ -204,10 +201,10 @@
 		FAEFDDC5262F3E2800F38FA2 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				FAEFDDF4262F504100F38FA2 /* FPDatabase.swift */,
 				FA43A51A262F69E20083831B /* Task+CoreDataClass.swift */,
 				FA43A51B262F69E20083831B /* Task+CoreDataProperties.swift */,
-				FAEFDDC6262F400900F38FA2 /* FPDataModel.xcdatamodeld */,
-				FAEFDDF4262F504100F38FA2 /* FPDatabase.swift */,
+				FA5F56652630708500E72853 /* FPDataModel.xcdatamodeld */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -360,8 +357,8 @@
 				FA12D2812614E353003CE904 /* FPTasksViewController.swift in Sources */,
 				FA12D27D2614E353003CE904 /* AppDelegate.swift in Sources */,
 				FAEFDDF5262F504100F38FA2 /* FPDatabase.swift in Sources */,
-				FAEFDD69262AF5F200F38FA2 /* FPTaskInfo.swift in Sources */,
 				FA12D27F2614E353003CE904 /* SceneDelegate.swift in Sources */,
+				FA5F56672630708500E72853 /* FPDataModel.xcdatamodeld in Sources */,
 				FAEFDD552629912A00F38FA2 /* FPTasksCell.swift in Sources */,
 				FA43A51D262F69E20083831B /* Task+CoreDataClass.swift in Sources */,
 				FA43A51C262F69E20083831B /* Task+CoreDataProperties.swift in Sources */,
@@ -369,7 +366,6 @@
 				FAEFDDB1262C82BE00F38FA2 /* FPTask.swift in Sources */,
 				FA2BB97B262718F500246242 /* FPTabBarViewController.swift in Sources */,
 				FAA8C05F26235CFE00456B68 /* FPPopUpViewController.swift in Sources */,
-				FAEFDDC8262F400900F38FA2 /* FPDataModel.xcdatamodeld in Sources */,
 				FA2BB9812627195400246242 /* FPHistoryViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -568,12 +564,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		FAEFDDC6262F400900F38FA2 /* FPDataModel.xcdatamodeld */ = {
+		FA5F56652630708500E72853 /* FPDataModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				FAEFDDC7262F400900F38FA2 /* FPDataModel.xcdatamodel */,
+				FA5F56662630708500E72853 /* FPDataModel.xcdatamodel */,
 			);
-			currentVersion = FAEFDDC7262F400900F38FA2 /* FPDataModel.xcdatamodel */;
+			currentVersion = FA5F56662630708500E72853 /* FPDataModel.xcdatamodel */;
 			path = FPDataModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

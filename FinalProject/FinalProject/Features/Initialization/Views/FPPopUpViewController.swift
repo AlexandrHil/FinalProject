@@ -16,6 +16,8 @@ class FPPopUpViewController: UIView {
 
     weak var delegate: FPPopUpViewControllerDelegate?
 
+    let date = String(DateFormatter.localizedString(from: NSDate() as Date, dateStyle: .long, timeStyle: .none))
+
     // MARK: - gui variables
 
     private var titleLabel: UILabel = {
@@ -183,7 +185,7 @@ class FPPopUpViewController: UIView {
         }
         self.backgroundColor = .clear
 
-        let taskTitle = FPTask(taskTitle: textView.text, taskDescription: "")
+        let taskTitle = FPTask(taskTitle: textView.text, taskDescription: "  from \(date.lowercased())", taskDate: Date(), taskChecked: true)
 
         delegate?.FPPopUpViewControllerOkButtonTapped(self, didFinishAdding: taskTitle)
     }
