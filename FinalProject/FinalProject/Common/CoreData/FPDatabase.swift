@@ -5,13 +5,6 @@
 //  Created by Alex on 20.04.21.
 //
 
-//
-//  FPDatabase.swift
-//  FinalProject
-//
-//  Created by Alex on 20.04.21.
-//
-
 import Foundation
 import CoreData
 
@@ -69,6 +62,7 @@ class FPDatabase {
 
         do {
             let tasks = try self.context.fetch(fetchRequest)
+            print("SMTH")
 
             return tasks.map { $0.getTask() }
         } catch {

@@ -33,7 +33,7 @@ class FPTasksViewController: UITableViewController, FPPopUpViewControllerDelegat
         self.tableView.register(UITableViewCell.self,
                                 forCellReuseIdentifier: FPTasksCell.reuseIdentifier)
 
-        self.tableView.isScrollEnabled = true
+//        self.tableView.isScrollEnabled = true
     }
 
     // MARK: - actions
@@ -64,7 +64,7 @@ class FPTasksViewController: UITableViewController, FPPopUpViewControllerDelegat
         case .delete:
             self.tasks.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-            FPDB.sh.delete([tasks[indexPath.row]])
+            FPDB.sh.delete([self.tasks[indexPath.row]])
         default:
             break
         }

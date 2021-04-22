@@ -128,5 +128,6 @@ extension FPHistoryViewController: UITableViewDelegate, UITableViewDataSource {
 
         datesWithEvent = [dateString]
         calendar?.reloadData()
+        tableView.reloadData()
     }
 }
