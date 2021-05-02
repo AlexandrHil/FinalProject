@@ -1,5 +1,5 @@
 # FinalProject
 
-habit manager
+yes/no app (habit manager)
 
 continue working
