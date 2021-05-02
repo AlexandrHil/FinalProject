@@ -11,16 +11,15 @@ class FPTasksViewController: UITableViewController, FPPopUpViewControllerDelegat
 
     let date = String(DateFormatter.localizedString(from: NSDate() as Date, dateStyle: .long, timeStyle: .none))
 
-    private var tasks: [FPTask] = FPDefaults.sh.tasks {
-        didSet {
-            FPDefaults.sh.tasks = self.tasks
-        }
-    }
+    private var tasks: [FPTask] = FPDB.sh.loadTasks()
 
     // MARK: - life cycle functions
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
 
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
 
@@ -31,14 +30,10 @@ class FPTasksViewController: UITableViewController, FPPopUpViewControllerDelegat
 
         configureNavigationBar(largeTitleColor: .systemYellow, backgoundColor: .systemBlue, tintColor: .black, title: " Today,  \(date)", preferredLargeTitle: true)
 
-        self.tableView.register(FPTasksCell.self,
+        self.tableView.register(UITableViewCell.self,
                                 forCellReuseIdentifier: FPTasksCell.reuseIdentifier)
 
-        self.tableView.separatorStyle = .none
-
-        let tapGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(didTapTableView))
-
-        tableView.addGestureRecognizer(tapGestureRecognizer)
+//        self.tableView.isScrollEnabled = true
     }
 
     // MARK: - actions
@@ -50,7 +45,7 @@ class FPTasksViewController: UITableViewController, FPPopUpViewControllerDelegat
         let indexPath = IndexPath(row: newRowIndex, section: 0)
 
         tableView.insertRows(at: [indexPath], with: .automatic)
-        navigationController?.popViewController(animated: true)
+        FPDB.sh.save(task: newTask)
     }
 
     @objc func addButtonTapped() {
@@ -62,10 +57,6 @@ class FPTasksViewController: UITableViewController, FPPopUpViewControllerDelegat
         self.view.backgroundColor = UIColor.systemGray3.withAlphaComponent(0.8)
     }
 
-    @objc func didTapTableView(_ gestureRecognizer: UILongPressGestureRecognizer) {
-        self.tableView.backgroundColor = .black
-    }
-
     // MARK: - table view
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -73,6 +64,7 @@ class FPTasksViewController: UITableViewController, FPPopUpViewControllerDelegat
         case .delete:
             self.tasks.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
+            FPDB.sh.delete([self.tasks[indexPath.row]])
         default:
             break
         }
@@ -92,5 +84,11 @@ class FPTasksViewController: UITableViewController, FPPopUpViewControllerDelegat
         cell.setCellData(taskName: "  \(task.taskTitle)", taskDescription: "  from \(date.lowercased())")
 
         return cell
+    }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let cell = tableView.cellForRow(at: indexPath) {
+            cell.contentView.backgroundColor = .systemGreen
+        }
     }
 }

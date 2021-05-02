@@ -14,6 +14,8 @@ protocol FPPopUpViewControllerDelegate: class {
 
 class FPPopUpViewController: UIView {
 
+    let date = String(DateFormatter.localizedString(from: NSDate() as Date, dateStyle: .long, timeStyle: .none))
+
     weak var delegate: FPPopUpViewControllerDelegate?
 
     // MARK: - gui variables
@@ -21,11 +23,11 @@ class FPPopUpViewController: UIView {
     private var titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.systemFont(ofSize: 36, weight: .bold)
+        label.font = UIFont.systemFont(ofSize: 30, weight: .bold)
         label.textAlignment = .center
         label.clipsToBounds = true
         label.text = "New task"
-        label.backgroundColor = .systemRed
+        label.backgroundColor = .systemBlue
         label.textColor = .systemYellow
         label.layer.cornerRadius = 20
         label.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
@@ -38,9 +40,9 @@ class FPPopUpViewController: UIView {
         tv.translatesAutoresizingMaskIntoConstraints = false
         tv.clipsToBounds = true
         tv.backgroundColor = UIColor(hexString: "#F7F7FF")
-        tv.textColor = .systemBlue
-        tv.font = UIFont.systemFont(ofSize: 18)
-        tv.tintColor = .systemBlue
+        tv.textColor = UIColor(hexString: "#495867")
+        tv.font = UIFont.systemFont(ofSize: 30)
+        tv.tintColor = UIColor(hexString: "#495867")
         tv.textAlignment = .left
         return tv
     }()
@@ -63,7 +65,7 @@ class FPPopUpViewController: UIView {
 
     private var cancelButton: UIButton = {
         let cancel = UIButton()
-        cancel.backgroundColor = .systemYellow
+        cancel.backgroundColor = UIColor(hexString: "#F7F7FF")
         cancel.setTitleColor(.systemRed, for: UIControl.State())
         cancel.setTitle("Cancel", for: UIControl.State())
         cancel.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
@@ -78,7 +80,7 @@ class FPPopUpViewController: UIView {
 
     private var okButton: UIButton = {
         let ok = UIButton()
-        ok.backgroundColor = .systemYellow
+        ok.backgroundColor = UIColor(hexString: "#F7F7FF")
         ok.setTitleColor(.systemBlue, for: UIControl.State())
         ok.setTitle("OK", for: UIControl.State())
         ok.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
@@ -183,7 +185,7 @@ class FPPopUpViewController: UIView {
         }
         self.backgroundColor = .clear
 
-        let taskTitle = FPTask(taskTitle: textView.text, taskDescription: "")
+        let taskTitle = FPTask(taskTitle: textView.text, taskDescription: "  from \(date.lowercased())", taskDate: Date(), taskChecked: false)
 
         delegate?.FPPopUpViewControllerOkButtonTapped(self, didFinishAdding: taskTitle)
     }
